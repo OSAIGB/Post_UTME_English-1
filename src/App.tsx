@@ -5,7 +5,7 @@
 
 import React, { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, Trophy, Sparkles, ShieldCheck } from 'lucide-react';
+import { BookOpen, Trophy, Sparkles, ShieldCheck, MessageCircle } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
@@ -141,6 +141,16 @@ export default function App() {
               <p className="mt-8 text-gray-400 text-sm font-medium uppercase tracking-widest">
                 30 Questions | Time Limit: 10 Minutes
               </p>
+
+              <a
+                href="https://whatsapp.com/channel/0029Vb7ob8D6BIEmprLJEw3k"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-12 flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba56] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-95 animate-bounce"
+              >
+                <MessageCircle size={20} />
+                Follow our WhatsApp Channel for Updates
+              </a>
             </motion.div>
           )}
 
@@ -177,7 +187,18 @@ export default function App() {
         </AnimatePresence>
 
         {/* Global Footer Decoration */}
-        <footer className="py-8 text-center text-gray-300 text-xs font-medium uppercase tracking-[0.2em] pointer-events-none">
+        <footer className="py-8 text-center text-gray-300 text-xs font-medium uppercase tracking-[0.2em]">
+          <div className="mb-4">
+            <a
+              href="https://whatsapp.com/channel/0029Vb7ob8D6BIEmprLJEw3k"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-bold normal-case tracking-normal"
+            >
+              <MessageCircle size={14} />
+              Join our WhatsApp Channel
+            </a>
+          </div>
           ReadySpace &copy; {new Date().getFullYear()} &bull; Academic Evaluation Platform
         </footer>
       </div>
