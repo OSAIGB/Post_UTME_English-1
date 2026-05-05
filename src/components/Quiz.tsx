@@ -112,10 +112,15 @@ export const Quiz: React.FC<QuizProps> = ({
             animate={{ x: 0, opacity: 1 }}
             className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100"
           >
-            <div className="mb-2">
+            <div className="mb-2 flex justify-between items-center">
                <span className="inline-block px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-bold uppercase mb-4 tracking-tighter">
                 {currentQuestion.category.replace('_', ' ')}
               </span>
+              {currentQuestion.sourceYear && (
+                <span className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">
+                  UNIBEN {currentQuestion.sourceYear}
+                </span>
+              )}
             </div>
             <div className="text-xl font-medium text-gray-800 leading-relaxed mb-8">
                <Markdown>{currentQuestion.text}</Markdown>

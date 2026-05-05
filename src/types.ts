@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export type QuestionCategory = 'COMPREHENSION' | 'IDIOMS' | 'LEXIS_STRUCTURE' | 'SYNONYMS' | 'ANTONYMS';
+export type QuestionCategory = 'COMPREHENSION' | 'IDIOMS' | 'LEXIS_STRUCTURE' | 'SYNONYMS' | 'ANTONYMS' | 'PHYSICS';
 
 export interface Question {
   id: number;
@@ -13,6 +13,7 @@ export interface Question {
   category: QuestionCategory;
   explanation: string;
   passage?: string; // Optional for comprehension
+  sourceYear?: string;
 }
 
 export interface QuizState {

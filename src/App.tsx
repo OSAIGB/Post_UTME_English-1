@@ -5,8 +5,8 @@
 
 import React, { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, Trophy, Sparkles, ShieldCheck, MessageCircle } from 'lucide-react';
-import { QUESTIONS } from './data/questions';
+import { BookOpen, Trophy, Sparkles, ShieldCheck } from 'lucide-react';
+import { PHYSICS_QUESTIONS } from './data/physics/electricity-1';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
 import { AntiCheatGuard } from './components/AntiCheatGuard';
@@ -16,7 +16,7 @@ export default function App() {
   const [gameState, setGameState] = useState<'START' | 'QUIZ' | 'RESULTS'>('START');
   const [cheatWarnings, setCheatWarnings] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<(number | null)[]>(new Array(QUESTIONS.length).fill(null));
+  const [answers, setAnswers] = useState<(number | null)[]>(new Array(PHYSICS_QUESTIONS.length).fill(null));
   const [timeLeft, setTimeLeft] = useState(10 * 60); // 10 minutes in seconds
 
   const startQuiz = () => {
@@ -34,7 +34,7 @@ export default function App() {
 
   const restartQuiz = () => {
     setGameState('START');
-    setAnswers(new Array(QUESTIONS.length).fill(null));
+    setAnswers(new Array(PHYSICS_QUESTIONS.length).fill(null));
     setCurrentQuestionIndex(0);
     setCheatWarnings(0);
     setTimeLeft(10 * 60);
@@ -48,9 +48,10 @@ export default function App() {
       LEXIS_STRUCTURE: { correct: 0, total: 0 },
       SYNONYMS: { correct: 0, total: 0 },
       ANTONYMS: { correct: 0, total: 0 },
+      PHYSICS: { correct: 0, total: 0 },
     };
 
-    QUESTIONS.forEach((q, idx) => {
+    PHYSICS_QUESTIONS.forEach((q, idx) => {
       categoryStats[q.category].total++;
       if (answers[idx] === q.correctAnswer) {
         score++;
@@ -58,7 +59,7 @@ export default function App() {
       }
     });
 
-    const percentage = Math.round((score / QUESTIONS.length) * 100);
+    const percentage = Math.round((score / PHYSICS_QUESTIONS.length) * 100);
     const strengths: string[] = [];
     const weaknesses: string[] = [];
 
@@ -71,16 +72,16 @@ export default function App() {
 
     let recommendation = "";
     if (percentage >= 80) {
-      recommendation = "Impressive performance! Your grasp of English usage and semantics is advanced. To reach perfection, explore more complex literary works and nuanced rhetorical devices.";
+      recommendation = "Exceptional understanding of electrical principles! Your mastery of circuit analysis, electromagnetic theory, and semiconductor physics is outstanding.";
     } else if (percentage >= 60) {
-      recommendation = "You have a solid foundation. Focus on the specific areas where you missed marks, particularly in the vocabulary sections (synonyms/antonyms) where consistency is key.";
+      recommendation = "Good grasp of the basics. We recommend reviewing transformer efficiency calculations and circuit problems involving internal resistance to solidify your scores.";
     } else {
-      recommendation = "You're getting started on the right path. We recommend focusing on 'Lexis & Structure' fundamentals. Read more diverse texts to naturally pick up idioms and varied vocabulary patterns.";
+      recommendation = "There's room for growth in your Physics journey. Focus on fundamental laws like Ohm's and Coulomb's laws, and practice solving basic circuit diagrams.";
     }
 
     return {
       score,
-      total: QUESTIONS.length,
+      total: PHYSICS_QUESTIONS.length,
       percentage,
       categoryPerformance: categoryStats,
       strengths,
@@ -108,8 +109,8 @@ export default function App() {
                 Ready<span className="text-emerald-600">Space.</span>
               </h1>
               <p className="max-w-2xl text-xl text-gray-500 mb-12 leading-relaxed">
-                A professional environment for students to evaluate their performance. 
-                30 curated questions to measure your aptitude in English language and comprehension.
+                A specialized environment for students to evaluate their performance. 
+                20 curated questions to measure your aptitude in **Physics (Electricity & Magnetism)**.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl w-full">
@@ -139,18 +140,8 @@ export default function App() {
               </button>
               
               <p className="mt-8 text-gray-400 text-sm font-medium uppercase tracking-widest">
-                30 Questions | Time Limit: 10 Minutes
+                20 Questions | Time Limit: 10 Minutes
               </p>
-
-              <a
-                href="https://whatsapp.com/channel/0029Vb7ob8D6BIEmprLJEw3k"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-12 flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba56] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-95 animate-bounce"
-              >
-                <MessageCircle size={20} />
-                Follow our WhatsApp Channel for Updates
-              </a>
             </motion.div>
           )}
 
@@ -162,7 +153,7 @@ export default function App() {
               exit={{ opacity: 0 }}
             >
               <Quiz
-                questions={QUESTIONS}
+                questions={PHYSICS_QUESTIONS}
                 onFinish={finishQuiz}
                 currentQuestionIndex={currentQuestionIndex}
                 setCurrentQuestionIndex={setCurrentQuestionIndex}
@@ -187,18 +178,7 @@ export default function App() {
         </AnimatePresence>
 
         {/* Global Footer Decoration */}
-        <footer className="py-8 text-center text-gray-300 text-xs font-medium uppercase tracking-[0.2em]">
-          <div className="mb-4">
-            <a
-              href="https://whatsapp.com/channel/0029Vb7ob8D6BIEmprLJEw3k"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-bold normal-case tracking-normal"
-            >
-              <MessageCircle size={14} />
-              Join our WhatsApp Channel
-            </a>
-          </div>
+        <footer className="py-8 text-center text-gray-300 text-xs font-medium uppercase tracking-[0.2em] pointer-events-none">
           ReadySpace &copy; {new Date().getFullYear()} &bull; Academic Evaluation Platform
         </footer>
       </div>

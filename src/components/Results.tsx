@@ -20,6 +20,7 @@ const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   LEXIS_STRUCTURE: 'Lexis & Structure',
   SYNONYMS: 'Synonyms (Vocabulary)',
   ANTONYMS: 'Antonyms (Vocabulary)',
+  PHYSICS: 'Physics (Electricity)',
 };
 
 export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
@@ -168,11 +169,11 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Review the questions you missed to understand the underlying grammatical rules.</span>
+                    <span>Review the step-by-step explanations for the circuit problems you missed.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Focus 30 minutes daily on active vocabulary building using the themes from our Synonyms section.</span>
+                    <span>Practice deriving the units for electrical quantities like resistivity and capacitance.</span>
                   </li>
                 </ul>
               </div>

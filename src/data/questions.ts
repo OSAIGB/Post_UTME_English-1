@@ -20,71 +20,71 @@ export const QUESTIONS: Question[] = [
     id: 1,
     passage: AI_PASSAGE,
     category: 'COMPREHENSION',
-    text: "According to the passage, what was the primary initial focus of modern humanity regarding AI?",
+    text: "According to the passage, the transition of AI from simple calculation to reasoning is best described as:",
     options: [
-      "Simulating human consciousness",
-      "Automation and rapid data processing",
-      "Creating digital art",
-      "Translating foreign languages"
+      "A planned architectural shift in computing",
+      "A byproduct of the pursuit of industrial efficiency",
+      "A philosophical departure from modern automation",
+      "An accidental discovery by primitive researchers"
     ],
     correctAnswer: 1,
-    explanation: "The passage explicitly states that modern humanity is 'more concerned with AI as a tool for automation and rapid data processing'."
+    explanation: "The passage states that the evolution into reasoning was 'in many ways, an evolution of the primary goal of making work more efficient', which aligns with the pursuit of industrial efficiency."
   },
   {
     id: 2,
     passage: AI_PASSAGE,
     category: 'COMPREHENSION',
-    text: "The passage suggests that the discovery of AI’s ability to reason was:",
+    text: "Which of the following can be inferred from the author’s comparison between the 'lamp' and 'early AI models'?",
     options: [
-      "The very first goal of early computing",
-      "An evolution of the goal to increase efficiency",
-      "A complete accident unrelated to technology",
-      "Discovered by primitive man"
+      "Both were developed primarily to mimic biological structures",
+      "Both resulted from the careful observation of natural phenomena",
+      "Both have remained unchanged since their initial conception",
+      "Both were originally intended to serve as mirrors of consciousness"
     ],
     correctAnswer: 1,
-    explanation: "The text says the discovery that machines could simulate reasoning was 'in many ways, an evolution of the primary goal of making work more efficient'."
+    explanation: "The author compares the observation of 'fat and fiber' (for the lamp) with the observation of the 'human brain' (for AI), both of which are natural phenomena used as inspiration."
   },
   {
     id: 3,
     passage: AI_PASSAGE,
     category: 'COMPREHENSION',
-    text: "What served as the inspiration for building the first AI models?",
+    text: "The word 'sophisticated' as used in the first paragraph most nearly means:",
     options: [
-      "The way fat drops from a carcass",
-      "The preservation of a flame",
-      "The intricate networks of the human brain",
-      "Basic hand-held calculators"
+      "Complicated and worldly",
+      "Highly developed and complex",
+      "Artificial and deceptive",
+      "Elegant and expensive"
     ],
-    correctAnswer: 2,
-    explanation: "The passage mentions researchers built AI models by 'observing the intricate networks of the human brain'."
+    correctAnswer: 1,
+    explanation: "In the context of 'sophisticated neural networks', the word refers to systems that are highly developed and technologically complex."
   },
   {
     id: 4,
     passage: AI_PASSAGE,
     category: 'COMPREHENSION',
-    text: "How does the author describe the function of digital 'neurons'?",
+    text: "Based on the passage, what is the 'Modern Fire'?",
     options: [
-      "They are used to store molten fat",
-      "They calculate tax returns manually",
-      "They pass information to one another to recognize patterns",
-      "They are hollowed-out sea shells"
+      "The literal heat produced by computer servers",
+      "The human desire to automate data processing",
+      "Artificial Intelligence as a transformative utility",
+      "The neural network of the human brain"
     ],
     correctAnswer: 2,
-    explanation: "The description provided is that digital neurons 'pass information to one another' to recognize patterns."
+    explanation: "The title and the passage establish AI as a transformative tool for humanity, much like fire was for primitive man."
   },
   {
     id: 5,
     passage: AI_PASSAGE,
     category: 'COMPREHENSION',
-    text: "The phrase 'Modern humanity is perhaps more concerned with AI as a tool... than as a mirror of human consciousness' implies that:",
+    text: " '<u>Modern humanity</u> is perhaps more concerned with AI as a tool... than as a mirror of human consciousness.' The grammatical name given to the underlined part of this sentence is a/an:",
     options: [
-      "People care more about what AI can do than how it thinks",
-      "AI is exactly the same as a human brain",
-      "People are afraid to use AI for work",
-      "Modern man has forgotten how to make fire"
+      "Adjectival Clause",
+      "Adverbial Phrase of Reason",
+      "Noun Phrase",
+      "Prepositional Phrase"
     ],
-    correctAnswer: 0,
-    explanation: "It contrasts utility (doing tasks) with consciousness (thinking Like a human)."
+    correctAnswer: 2,
+    explanation: "'Modern humanity' functions as the subject of the sentence and is a Noun Phrase."
   },
 
   // Idioms (6-10)
