@@ -9,6 +9,8 @@ import { ChevronRight, ChevronLeft, CheckCircle2, XCircle, Info, Timer as TimerI
 import { Question } from '../types';
 import { cn } from '../lib/utils';
 import Markdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 interface QuizProps {
   questions: Question[];
@@ -34,12 +36,17 @@ export const Quiz: React.FC<QuizProps> = ({
   const currentQuestion = questions[currentQuestionIndex];
   const hasAnswered = answers[currentQuestionIndex] !== null;
 
+  const answersRef = React.useRef(answers);
+  useEffect(() => {
+    answersRef.current = answers;
+  }, [answers]);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          onFinish(answers);
+          onFinish(answersRef.current);
           return 0;
         }
         return prev - 1;
@@ -47,7 +54,7 @@ export const Quiz: React.FC<QuizProps> = ({
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [onFinish, setTimeLeft, answers]);
+  }, [onFinish, setTimeLeft]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -123,7 +130,7 @@ export const Quiz: React.FC<QuizProps> = ({
               )}
             </div>
             <div className="text-xl font-medium text-gray-800 leading-relaxed mb-8">
-               <Markdown>{currentQuestion.text}</Markdown>
+               <Markdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{currentQuestion.text}</Markdown>
             </div>
 
             <div className="space-y-3">
@@ -157,7 +164,9 @@ export const Quiz: React.FC<QuizProps> = ({
                         String.fromCharCode(65 + idx)
                       )}
                     </div>
-                    <span className="font-medium text-inherit leading-tight">{option}</span>
+                    <div className="font-medium text-inherit leading-tight">
+                      <Markdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{option}</Markdown>
+                    </div>
                   </button>
                 );
               })}
@@ -174,7 +183,9 @@ export const Quiz: React.FC<QuizProps> = ({
                     <Info className="flex-shrink-0 mt-0.5 text-emerald-600" size={18} />
                     <div>
                       <p className="font-bold mb-1">Explanation</p>
-                      <p className="opacity-90">{currentQuestion.explanation}</p>
+                      <div className="opacity-90">
+                        <Markdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{currentQuestion.explanation}</Markdown>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

@@ -21,6 +21,7 @@ const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   SYNONYMS: 'Synonyms (Vocabulary)',
   ANTONYMS: 'Antonyms (Vocabulary)',
   PHYSICS: 'Physics (Electricity)',
+  CHEMISTRY: 'Chemistry (Electrolysis)',
 };
 
 export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
@@ -90,32 +91,39 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                 Category Performance
               </h3>
               <div className="grid grid-cols-1 gap-4">
-                {(Object.entries(analysis.categoryPerformance) as [QuestionCategory, { correct: number, total: number }][]).map(([cat, stats], i) => (
-                  <motion.div
-                    key={cat}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.6 + (i * 0.1) }}
-                    className="flex flex-col gap-2"
-                  >
-                    <div className="flex justify-between text-sm font-medium">
-                      <span className="text-gray-700">{CATEGORY_LABELS[cat]}</span>
-                      <span className="text-emerald-700">{Math.round((stats.correct / stats.total) * 100)}%</span>
-                    </div>
-                    <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${(stats.correct / stats.total) * 100}%` }}
-                        transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-                        className={cn(
-                          "h-full rounded-full transition-all",
-                          (stats.correct / stats.total) >= 0.75 ? "bg-emerald-500" : 
-                          (stats.correct / stats.total) >= 0.5 ? "bg-amber-500" : "bg-red-500"
-                        )}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
+                    {Object.entries(analysis.categoryPerformance)
+                      .filter(([_, stats]) => stats.total > 0)
+                      .map(([cat, stats], i) => {
+                        const categoryLabel = CATEGORY_LABELS[cat as QuestionCategory] || cat;
+                        const percentage = Math.round((stats.correct / stats.total) * 100);
+                        
+                        return (
+                          <motion.div
+                            key={cat}
+                            initial={{ x: -20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.6 + (i * 0.1) }}
+                            className="flex flex-col gap-2"
+                          >
+                            <div className="flex justify-between text-sm font-medium">
+                              <span className="text-gray-700">{categoryLabel}</span>
+                              <span className="text-emerald-700">{percentage}%</span>
+                            </div>
+                            <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                animate={{ width: `${percentage}%` }}
+                                transition={{ delay: 1, duration: 1, ease: "easeOut" }}
+                                className={cn(
+                                  "h-full rounded-full transition-all",
+                                  percentage >= 75 ? "bg-emerald-500" : 
+                                  percentage >= 50 ? "bg-amber-500" : "bg-red-500"
+                                )}
+                              />
+                            </div>
+                          </motion.div>
+                        );
+                      })}
               </div>
             </section>
 
@@ -169,11 +177,11 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Review the step-by-step explanations for the circuit problems you missed.</span>
+                    <span>Review the step-by-step calculations for electrolytic mass deposition and current.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Practice deriving the units for electrical quantities like resistivity and capacitance.</span>
+                    <span>Memorize the electrochemical series to better predict preferential discharge at electrodes.</span>
                   </li>
                 </ul>
               </div>
