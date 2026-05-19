@@ -86,6 +86,7 @@ export const QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "'Modern humanity' functions as the subject of the sentence and is a Noun Phrase."
   },
+
   // Idioms (6-10)
   {
     id: 6,

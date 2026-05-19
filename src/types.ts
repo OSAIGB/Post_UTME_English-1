@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export type QuestionCategory = 'COMPREHENSION' | 'IDIOMS' | 'LEXIS_STRUCTURE' | 'SYNONYMS' | 'ANTONYMS' | 'PHYSICS' | 'CHEMISTRY';
+export type QuestionCategory = 'COMPREHENSION' | 'IDIOMS' | 'LEXIS_STRUCTURE' | 'SYNONYMS' | 'ANTONYMS' | 'PHYSICS' | 'CHEMISTRY' | 'BIOLOGY';
 
 export interface Question {
   id: number;

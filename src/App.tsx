@@ -6,7 +6,7 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, Trophy, Sparkles, ShieldCheck } from 'lucide-react';
-import { CHEMISTRY_QUESTIONS } from './data/chemistry/electrolysis';
+import { BIOLOGY_QUESTIONS } from './data/biology/soil';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
 import { AntiCheatGuard } from './components/AntiCheatGuard';
@@ -16,7 +16,7 @@ export default function App() {
   const [gameState, setGameState] = useState<'START' | 'QUIZ' | 'RESULTS'>('START');
   const [cheatWarnings, setCheatWarnings] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<(number | null)[]>(new Array(CHEMISTRY_QUESTIONS.length).fill(null));
+  const [answers, setAnswers] = useState<(number | null)[]>(new Array(BIOLOGY_QUESTIONS.length).fill(null));
   const [timeLeft, setTimeLeft] = useState(10 * 60); // 10 minutes in seconds
 
   const startQuiz = () => {
@@ -34,7 +34,7 @@ export default function App() {
 
   const restartQuiz = () => {
     setGameState('START');
-    setAnswers(new Array(CHEMISTRY_QUESTIONS.length).fill(null));
+    setAnswers(new Array(BIOLOGY_QUESTIONS.length).fill(null));
     setCurrentQuestionIndex(0);
     setCheatWarnings(0);
     setTimeLeft(10 * 60);
@@ -50,9 +50,10 @@ export default function App() {
       ANTONYMS: { correct: 0, total: 0 },
       PHYSICS: { correct: 0, total: 0 },
       CHEMISTRY: { correct: 0, total: 0 },
+      BIOLOGY: { correct: 0, total: 0 },
     };
 
-    CHEMISTRY_QUESTIONS.forEach((q, idx) => {
+    BIOLOGY_QUESTIONS.forEach((q, idx) => {
       categoryStats[q.category].total++;
       if (answers[idx] === q.correctAnswer) {
         score++;
@@ -60,7 +61,7 @@ export default function App() {
       }
     });
 
-    const percentage = Math.round((score / CHEMISTRY_QUESTIONS.length) * 100);
+    const percentage = Math.round((score / BIOLOGY_QUESTIONS.length) * 100);
     const strengths: string[] = [];
     const weaknesses: string[] = [];
 
@@ -74,16 +75,16 @@ export default function App() {
 
     let recommendation = "";
     if (percentage >= 80) {
-      recommendation = "Outstanding performance in electrochemistry! Your understanding of Faraday's laws and electrolytic principles is exceptional.";
+      recommendation = "Excellent knowledge of soil biology and fertility! Your understanding of soil components, nutrient cycles, and conservation methods is impressive.";
     } else if (percentage >= 60) {
-      recommendation = "Good grasp of electrochemical concepts. We recommend revisiting quantitative calculations involving molar masses and Faraday's constant.";
+      recommendation = "Solid foundation in soil concepts. We suggest reviewing soil erosion sequences and the specific mechanisms of leaching and denitrification for a perfect score.";
     } else {
-      recommendation = "Focus on the basics of oxidation-reduction and the qualitative aspects of preferential discharge in electrolysis to improve your score.";
+      recommendation = "Focus on the basic physical and chemical properties of different soil types, and the role of microorganisms in the nitrogen cycle.";
     }
 
     return {
       score,
-      total: CHEMISTRY_QUESTIONS.length,
+      total: BIOLOGY_QUESTIONS.length,
       percentage,
       categoryPerformance: categoryStats,
       strengths,
@@ -112,7 +113,7 @@ export default function App() {
               </h1>
               <p className="max-w-2xl text-xl text-gray-500 mb-12 leading-relaxed">
                 A specialized environment for students to evaluate their performance. 
-                20 curated questions to measure your aptitude in **Chemistry (Electrolysis)**.
+                20 curated questions to measure your aptitude in **Biology (Soil)**.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl w-full">
@@ -155,7 +156,7 @@ export default function App() {
               exit={{ opacity: 0 }}
             >
               <Quiz
-                questions={CHEMISTRY_QUESTIONS}
+                questions={BIOLOGY_QUESTIONS}
                 onFinish={finishQuiz}
                 currentQuestionIndex={currentQuestionIndex}
                 setCurrentQuestionIndex={setCurrentQuestionIndex}

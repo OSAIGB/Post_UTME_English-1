@@ -22,6 +22,7 @@ const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   ANTONYMS: 'Antonyms (Vocabulary)',
   PHYSICS: 'Physics (Electricity)',
   CHEMISTRY: 'Chemistry (Electrolysis)',
+  BIOLOGY: 'Biology (Soil)',
 };
 
 export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
@@ -177,11 +178,11 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Review the step-by-step calculations for electrolytic mass deposition and current.</span>
+                    <span>Review the different soil types and their properties regarding water and nutrient retention.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Memorize the electrochemical series to better predict preferential discharge at electrodes.</span>
+                    <span>Study the nitrogen cycle in depth, specifically focusing on the roles of nitrogen-fixing, nitrifying, and denitrifying bacteria.</span>
                   </li>
                 </ul>
               </div>
