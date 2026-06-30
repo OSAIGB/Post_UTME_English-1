@@ -22,7 +22,7 @@ const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   ANTONYMS: 'Antonyms (Vocabulary)',
   PHYSICS: 'Physics (Electricity)',
   CHEMISTRY: 'Chemistry (Electrolysis)',
-  BIOLOGY: 'Biology (Soil)',
+  BIOLOGY: 'Biology (Heredity & Variation)',
 };
 
 export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
@@ -178,11 +178,11 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Review the different soil types and their properties regarding water and nutrient retention.</span>
+                    <span>Review the key differences between continuous and discontinuous variations (e.g., blood groups vs. physical height).</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Study the nitrogen cycle in depth, specifically focusing on the roles of nitrogen-fixing, nitrifying, and denitrifying bacteria.</span>
+                    <span>Master Mendelian monohybrid crosses, genotype/phenotype ratios (e.g. $1:2:1$ vs. $3:1$), and sex-linked traits.</span>
                   </li>
                 </ul>
               </div>
