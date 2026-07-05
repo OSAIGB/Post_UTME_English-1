@@ -6,7 +6,7 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, Trophy, Sparkles, ShieldCheck } from 'lucide-react';
-import { HEREDITY_QUESTIONS } from './data/biology/heredity';
+import { SOUND_QUESTIONS } from './data/physics/sound';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
 import { AntiCheatGuard } from './components/AntiCheatGuard';
@@ -16,12 +16,12 @@ export default function App() {
   const [gameState, setGameState] = useState<'START' | 'QUIZ' | 'RESULTS'>('START');
   const [cheatWarnings, setCheatWarnings] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<(number | null)[]>(new Array(HEREDITY_QUESTIONS.length).fill(null));
-  const [timeLeft, setTimeLeft] = useState(10 * 60); // 10 minutes in seconds
+  const [answers, setAnswers] = useState<(number | null)[]>(new Array(SOUND_QUESTIONS.length).fill(null));
+  const [timeLeft, setTimeLeft] = useState(6 * 60); // 6 minutes in seconds
 
   const startQuiz = () => {
     setGameState('QUIZ');
-    setTimeLeft(10 * 60);
+    setTimeLeft(6 * 60);
   };
 
   const handleWarning = useCallback(() => {
@@ -34,10 +34,10 @@ export default function App() {
 
   const restartQuiz = () => {
     setGameState('START');
-    setAnswers(new Array(HEREDITY_QUESTIONS.length).fill(null));
+    setAnswers(new Array(SOUND_QUESTIONS.length).fill(null));
     setCurrentQuestionIndex(0);
     setCheatWarnings(0);
-    setTimeLeft(10 * 60);
+    setTimeLeft(6 * 60);
   };
 
   const analysis = useMemo((): ResultAnalysis => {
@@ -53,7 +53,7 @@ export default function App() {
       BIOLOGY: { correct: 0, total: 0 },
     };
 
-    HEREDITY_QUESTIONS.forEach((q, idx) => {
+    SOUND_QUESTIONS.forEach((q, idx) => {
       categoryStats[q.category].total++;
       if (answers[idx] === q.correctAnswer) {
         score++;
@@ -61,7 +61,7 @@ export default function App() {
       }
     });
 
-    const percentage = Math.round((score / HEREDITY_QUESTIONS.length) * 100);
+    const percentage = Math.round((score / SOUND_QUESTIONS.length) * 100);
     const strengths: string[] = [];
     const weaknesses: string[] = [];
 
@@ -75,16 +75,16 @@ export default function App() {
 
     let recommendation = "";
     if (percentage >= 80) {
-      recommendation = "Exceptional understanding of genetics! Your mastery of Mendelian inheritance, variation types, and molecular biology is outstanding.";
+      recommendation = "Exceptional understanding of acoustics and wave properties! Your mastery of speed, reflection, and wave characteristics is outstanding.";
     } else if (percentage >= 60) {
-      recommendation = "Good grasp of the basics of heredity. We recommend reviewing Mendelian ratios and the mechanics of sex-linked traits to solidify your scores.";
+      recommendation = "Good grasp of physics of sound. We recommend reviewing wave calculations (velocity, frequency, period, wavelength) to improve your score.";
     } else {
-      recommendation = "There is room for growth in your genetics journey. Focus on fundamental concepts like genotypes vs phenotypes, and the laws of segregation.";
+      recommendation = "There is room for growth in your acoustic physics journey. Focus on fundamental concepts like wave classifications, medium requirements, and speed equations.";
     }
 
     return {
       score,
-      total: HEREDITY_QUESTIONS.length,
+      total: SOUND_QUESTIONS.length,
       percentage,
       categoryPerformance: categoryStats,
       strengths,
@@ -113,7 +113,7 @@ export default function App() {
               </h1>
               <p className="max-w-2xl text-xl text-gray-500 mb-12 leading-relaxed">
                 A specialized environment for students to evaluate their performance. 
-                15 curated questions to measure your aptitude in **Biology (Heredity & Variation)**.
+                15 curated questions to measure your aptitude in **Physics (Sound & Acoustics)**.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl w-full">
@@ -143,7 +143,7 @@ export default function App() {
               </button>
               
               <p className="mt-8 text-gray-400 text-sm font-medium uppercase tracking-widest">
-                Quick Drill: 15 Questions | Time Limit: 10 Minutes
+                Quick Drill: 15 Questions | Time Limit: 6 Minutes
               </p>
             </motion.div>
           )}
@@ -156,7 +156,7 @@ export default function App() {
               exit={{ opacity: 0 }}
             >
               <Quiz
-                questions={HEREDITY_QUESTIONS}
+                questions={SOUND_QUESTIONS}
                 onFinish={finishQuiz}
                 currentQuestionIndex={currentQuestionIndex}
                 setCurrentQuestionIndex={setCurrentQuestionIndex}

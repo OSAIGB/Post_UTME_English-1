@@ -20,7 +20,7 @@ const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   LEXIS_STRUCTURE: 'Lexis & Structure',
   SYNONYMS: 'Synonyms (Vocabulary)',
   ANTONYMS: 'Antonyms (Vocabulary)',
-  PHYSICS: 'Physics (Electricity)',
+  PHYSICS: 'Physics (Sound & Acoustics)',
   CHEMISTRY: 'Chemistry (Electrolysis)',
   BIOLOGY: 'Biology (Heredity & Variation)',
 };
@@ -178,11 +178,11 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Review the key differences between continuous and discontinuous variations (e.g., blood groups vs. physical height).</span>
+                    <span>Review wave properties such as speed ($v = f\lambda$), period ($T = 1/f$), frequency, and echo calculations ($2d = vt$).</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Master Mendelian monohybrid crosses, genotype/phenotype ratios (e.g. $1:2:1$ vs. $3:1$), and sex-linked traits.</span>
+                    <span>Study the properties of longitudinal vs. transverse waves, and factors affecting the speed of sound in different media and conditions.</span>
                   </li>
                 </ul>
               </div>
