@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export type QuestionCategory = 'COMPREHENSION' | 'IDIOMS' | 'LEXIS_STRUCTURE' | 'SYNONYMS' | 'ANTONYMS' | 'PHYSICS' | 'CHEMISTRY' | 'BIOLOGY';
+export type QuestionCategory = 'COMPREHENSION' | 'IDIOMS' | 'LEXIS_STRUCTURE' | 'SYNONYMS' | 'ANTONYMS' | 'PHYSICS' | 'CHEMISTRY' | 'BIOLOGY' | 'GOVERNMENT';
 
 export interface Question {
   id: number;
@@ -33,4 +33,5 @@ export interface ResultAnalysis {
   strengths: string[];
   weaknesses: string[];
   recommendation: string;
+  subject?: 'GOVERNMENT' | 'ENGLISH';
 }

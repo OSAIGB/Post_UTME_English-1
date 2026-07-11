@@ -17,12 +17,13 @@ interface ResultsProps {
 const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   COMPREHENSION: 'Reading Comprehension',
   IDIOMS: 'Idioms & Interpretation',
-  LEXIS_STRUCTURE: 'Lexis & Structure',
+  LEXIS_STRUCTURE: 'Use of English & Word Stress',
   SYNONYMS: 'Synonyms (Vocabulary)',
   ANTONYMS: 'Antonyms (Vocabulary)',
   PHYSICS: 'Physics (Sound & Acoustics)',
   CHEMISTRY: 'Chemistry (Electrolysis)',
   BIOLOGY: 'Biology (Heredity & Variation)',
+  GOVERNMENT: 'Government (Political Parties & Pressure Groups)',
 };
 
 export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
@@ -173,17 +174,43 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
               <p className="text-emerald-50 leading-relaxed mb-6">
                 {analysis.recommendation}
               </p>
+              
               <div className="p-4 bg-white/10 rounded-xl border border-white/20">
-                <p className="text-sm font-medium opacity-90 mb-2 uppercase tracking-widest text-emerald-200">Suggested Next Steps:</p>
+                <p className="text-sm font-medium opacity-90 mb-2 uppercase tracking-widest text-emerald-200">
+                  {analysis.subject === 'ENGLISH' ? 'Strategic Professional Advice for Use of English' : 'Suggested Next Steps'}
+                </p>
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Review wave properties such as speed ($v = f\lambda$), period ($T = 1/f$), frequency, and echo calculations ($2d = vt$).</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <ArrowRight size={18} className="mt-0.5 flex-shrink-0" />
-                    <span>Study the properties of longitudinal vs. transverse waves, and factors affecting the speed of sound in different media and conditions.</span>
-                  </li>
+                  {analysis.subject === 'ENGLISH' ? (
+                    <>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>The &ldquo;-tion&rdquo; Rule:</strong> In words like <em>Termination</em>, <em>Dedication</em>, and <em>Demarcation</em>, stress almost always falls on the syllable immediately preceding the suffix &ldquo;-tion&rdquo;.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>The &ldquo;-ity&rdquo; Rule:</strong> For words ending in &ldquo;-ity,&rdquo; such as <em>Captivity</em>, the stress typically falls on the third syllable from the end.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Noun vs. Verb stress:</strong> Be careful with words that change stress based on speech part (e.g., <strong>EXPORT</strong> (noun) has 1st-syllable stress, while <strong>export</strong> (verb) has 2nd-syllable stress).</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Practice Without Audio:</strong> Learn to identify sounds visually; frequent trap questions use words like <em>Coup</em> (sounding like <em>coo</em>) to test spelling vs. phonetics.</span>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span>Differentiate clearly between political parties (power-seeking) and pressure groups (policy-influencing).</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span>Study the mechanics of different electoral systems (e.g., proportional representation, single-party vs. multi-party structures).</span>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </section>

@@ -125,7 +125,7 @@ export const Quiz: React.FC<QuizProps> = ({
               </span>
               {currentQuestion.sourceYear && (
                 <span className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">
-                  UNIBEN {currentQuestion.sourceYear}
+                  {currentQuestion.sourceYear}
                 </span>
               )}
             </div>
