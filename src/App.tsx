@@ -33,7 +33,11 @@ export default function App() {
     else if (subject === 'ENGLISH') questionsCount = ENGLISH_QUESTIONS.length;
 
     setAnswers(new Array(questionsCount).fill(null));
-    setTimeLeft(15 * 60); // 15 minutes for all subjects
+    if (subject === 'GENERAL_PAPER' || subject === 'ECONOMICS') {
+      setTimeLeft(4 * 60); // 4 minutes tops for General Paper and Economics
+    } else {
+      setTimeLeft(15 * 60); // 15 minutes for other subjects
+    }
     setCurrentQuestionIndex(0);
     setCheatWarnings(0);
     setGameState('QUIZ');
@@ -215,7 +219,7 @@ export default function App() {
                             <GraduationCap className="w-5 h-5 sm:w-7 sm:h-7" />
                           </div>
                           <span className="bg-emerald-50 text-emerald-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
-                            15 Mins
+                            4 Mins
                           </span>
                         </div>
                         
@@ -261,7 +265,7 @@ export default function App() {
                             <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
                           </div>
                           <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
-                            15 Mins
+                            4 Mins
                           </span>
                         </div>
                         
