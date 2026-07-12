@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, Trophy, Sparkles, ShieldCheck, GraduationCap, Flame, ArrowRight, ShieldAlert } from 'lucide-react';
 import { GOVERNMENT_QUESTIONS } from './data/government/political_science';
 import { ENGLISH_QUESTIONS } from './data/english/oral_english';
+import { GENERAL_QUESTIONS } from './data/general_paper/uniben_general';
+import { ECONOMICS_QUESTIONS } from './data/economics/money_inflation';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
 import { AntiCheatGuard } from './components/AntiCheatGuard';
@@ -15,17 +17,23 @@ import { QuizState, ResultAnalysis, QuestionCategory } from './types';
 
 export default function App() {
   const [gameState, setGameState] = useState<'START' | 'QUIZ' | 'RESULTS'>('START');
-  const [selectedSubject, setSelectedSubject] = useState<'GOVERNMENT' | 'ENGLISH'>('GOVERNMENT');
+  const [selectedSubject, setSelectedSubject] = useState<'GENERAL_PAPER' | 'ECONOMICS' | 'GOVERNMENT' | 'ENGLISH'>('GENERAL_PAPER');
   const [cheatWarnings, setCheatWarnings] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
   const [timeLeft, setTimeLeft] = useState(15 * 60); // Default to 15 minutes in seconds
+  const [showHiddenMenu, setShowHiddenMenu] = useState(false);
 
-  const startQuiz = (subject: 'GOVERNMENT' | 'ENGLISH') => {
+  const startQuiz = (subject: 'GENERAL_PAPER' | 'ECONOMICS' | 'GOVERNMENT' | 'ENGLISH') => {
     setSelectedSubject(subject);
-    const questionsCount = subject === 'GOVERNMENT' ? GOVERNMENT_QUESTIONS.length : ENGLISH_QUESTIONS.length;
+    let questionsCount = 15;
+    if (subject === 'GENERAL_PAPER') questionsCount = GENERAL_QUESTIONS.length;
+    else if (subject === 'ECONOMICS') questionsCount = ECONOMICS_QUESTIONS.length;
+    else if (subject === 'GOVERNMENT') questionsCount = GOVERNMENT_QUESTIONS.length;
+    else if (subject === 'ENGLISH') questionsCount = ENGLISH_QUESTIONS.length;
+
     setAnswers(new Array(questionsCount).fill(null));
-    setTimeLeft(15 * 60); // 15 minutes for both subjects
+    setTimeLeft(15 * 60); // 15 minutes for all subjects
     setCurrentQuestionIndex(0);
     setCheatWarnings(0);
     setGameState('QUIZ');
@@ -47,7 +55,10 @@ export default function App() {
   };
 
   const activeQuestions = useMemo(() => {
-    return selectedSubject === 'GOVERNMENT' ? GOVERNMENT_QUESTIONS : ENGLISH_QUESTIONS;
+    if (selectedSubject === 'GENERAL_PAPER') return GENERAL_QUESTIONS;
+    if (selectedSubject === 'ECONOMICS') return ECONOMICS_QUESTIONS;
+    if (selectedSubject === 'GOVERNMENT') return GOVERNMENT_QUESTIONS;
+    return ENGLISH_QUESTIONS;
   }, [selectedSubject]);
 
   const analysis = useMemo((): ResultAnalysis => {
@@ -62,6 +73,8 @@ export default function App() {
       CHEMISTRY: { correct: 0, total: 0 },
       BIOLOGY: { correct: 0, total: 0 },
       GOVERNMENT: { correct: 0, total: 0 },
+      GENERAL_PAPER: { correct: 0, total: 0 },
+      ECONOMICS: { correct: 0, total: 0 },
     };
 
     activeQuestions.forEach((q, idx) => {
@@ -88,7 +101,23 @@ export default function App() {
     });
 
     let recommendation = "";
-    if (selectedSubject === 'GOVERNMENT') {
+    if (selectedSubject === 'GENERAL_PAPER') {
+      if (percentage >= 80) {
+        recommendation = "Exceptional historical and political awareness! Your knowledge of Nigerian pioneers, historical treaties, and landmark ICJ judgments is top-tier.";
+      } else if (percentage >= 60) {
+        recommendation = "Commendable performance in General Paper. Focus on memorizing administrative timelines (like the 1967 states creation) and regional history details to achieve a perfect score.";
+      } else {
+        recommendation = "There is significant room for improvement. Revise key historical events, the colonization/amalgamation dates, and pioneer biographies (like Grace Alele Williams).";
+      }
+    } else if (selectedSubject === 'ECONOMICS') {
+      if (percentage >= 80) {
+        recommendation = "Outstanding mastery of money and inflation! You clearly understand Keynesian motives for liquidity, OMO tools of central banking, and macroeconomic metrics.";
+      } else if (percentage >= 60) {
+        recommendation = "Good grasp of monetary principles. We recommend practicing structural equations (like the equation of exchange) and stagflation characteristics to secure a higher band.";
+      } else {
+        recommendation = "Focus on the basics of economics. Pay close attention to central bank instruments for controlling inflation, standard definitions of near-money, and motives for holding cash.";
+      }
+    } else if (selectedSubject === 'GOVERNMENT') {
       if (percentage >= 80) {
         recommendation = "Exceptional understanding of political systems, parties, and pressure groups! Your knowledge of electoral processes and group dynamics is top-tier.";
       } else if (percentage >= 60) {
@@ -142,98 +171,222 @@ export default function App() {
                 Accelerate Your Exam <span className="text-emerald-600 relative inline-block">Preparation.</span>
               </h1>
               
-              <p className="max-w-2xl text-[11px] sm:text-lg md:text-xl text-slate-500 text-center mb-3 sm:mb-12 leading-relaxed px-2">
-                A specialized, secure diagnostic sandbox designed to measure and elevate your performance. Evaluate your precision in <strong className="text-slate-800">Government</strong> or master <strong className="text-slate-800">Use of English & Word Stress</strong> today.
+              <p className="max-w-2xl text-[11px] sm:text-sm md:text-base text-slate-500 text-center mb-2 sm:mb-6 leading-relaxed px-2">
+                A specialized, secure diagnostic sandbox designed to measure and elevate your performance. {showHiddenMenu ? (
+                  <>Evaluate your precision in <strong className="text-slate-800">Government</strong> or master <strong className="text-slate-800">Use of English & Word Stress</strong> today.</>
+                ) : (
+                  <>Evaluate your precision in <strong className="text-slate-800">General Paper</strong> or master <strong className="text-slate-800">Economics (Money & Inflation)</strong> today.</>
+                )}
               </p>
+
+              {/* Hidden Menu Selector - Elegant Segmented Controller */}
+              <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200/40 mb-3 sm:mb-6 max-w-xs sm:max-w-md w-full shadow-inner">
+                <button
+                  onClick={() => setShowHiddenMenu(false)}
+                  className={`flex-1 py-1.5 sm:py-2.5 text-[10px] sm:text-xs font-black rounded-lg transition-all ${!showHiddenMenu ? 'bg-white text-emerald-700 shadow-sm border border-slate-100' : 'text-slate-500 hover:text-slate-800'}`}
+                >
+                  Post-UTME Core
+                </button>
+                <button
+                  onClick={() => setShowHiddenMenu(true)}
+                  className={`flex-1 py-1.5 sm:py-2.5 text-[10px] sm:text-xs font-black rounded-lg transition-all ${showHiddenMenu ? 'bg-white text-emerald-700 shadow-sm border border-slate-100' : 'text-slate-500 hover:text-slate-800'}`}
+                >
+                  Other Drills (Govt & English)
+                </button>
+              </div>
 
               {/* Subject Selection Grid - Highly Attractive Cards */}
               <div className="grid grid-cols-2 gap-3 sm:gap-8 w-full max-w-4xl mb-3 sm:mb-12 px-2 sm:px-0">
                 
-                {/* Government Card */}
-                <motion.div 
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full"
-                >
-                  <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-emerald-500/5 rounded-bl-full pointer-events-none" />
-                  <div>
-                    <div className="flex justify-between items-start mb-3 sm:mb-6">
-                      <div className="p-1.5 sm:p-3.5 bg-emerald-50 text-emerald-700 rounded-xl sm:rounded-2xl border border-emerald-100/60">
-                        <GraduationCap className="w-5 h-5 sm:w-7 sm:h-7" />
-                      </div>
-                      <span className="bg-emerald-50 text-emerald-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
-                        15 Mins
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Government</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
-                      Evaluate your grasp on political parties, pressure groups, electoral structures, and key power classification frameworks. Ideal for JAMB & Post-UTME candidates.
-                    </p>
+                {!showHiddenMenu ? (
+                  <>
+                    {/* General Paper Card */}
+                    <motion.div 
+                      key="general_paper"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                      className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full"
+                    >
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-emerald-500/5 rounded-bl-full pointer-events-none" />
+                      <div>
+                        <div className="flex justify-between items-start mb-2 sm:mb-6">
+                          <div className="p-1.5 sm:p-3.5 bg-emerald-50 text-emerald-700 rounded-xl sm:rounded-2xl border border-emerald-100/60">
+                            <GraduationCap className="w-5 h-5 sm:w-7 sm:h-7" />
+                          </div>
+                          <span className="bg-emerald-50 text-emerald-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
+                            15 Mins
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">General Paper</h3>
+                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
+                          Evaluate your knowledge of Nigerian history, current affairs, local administrative milestones, and key pioneers.
+                        </p>
 
-                    <div className="space-y-2.5 mb-8 hidden sm:block">
-                      <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
-                        <Flame size={14} className="text-emerald-600" />
-                        <span>15 Curated Comprehensive Questions</span>
+                        <div className="space-y-2.5 mb-8 hidden sm:block">
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <Flame size={14} className="text-emerald-600" />
+                            <span>15 Curated UNIBEN Past Questions</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <ShieldCheck size={14} className="text-emerald-600" />
+                            <span>Nigerian History & Current Affairs</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
-                        <ShieldCheck size={14} className="text-emerald-600" />
-                        <span>Interactive Proctored Mode Enabled</span>
-                      </div>
-                    </div>
-                  </div>
 
-                  <button
-                    onClick={() => startQuiz('GOVERNMENT')}
-                    className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-emerald-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-emerald-100 flex items-center justify-center gap-1 sm:gap-2 group"
-                  >
-                    <span className="hidden sm:inline">Launch Government Drill</span>
-                    <span className="inline sm:hidden">Launch</span>
-                    <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
-                  </button>
-                </motion.div>
+                      <button
+                        onClick={() => startQuiz('GENERAL_PAPER')}
+                        className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-emerald-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-emerald-100 flex items-center justify-center gap-1 sm:gap-2 group"
+                      >
+                        <span className="hidden sm:inline">Launch General Paper</span>
+                        <span className="inline sm:hidden">Launch</span>
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </motion.div>
 
-                {/* English Card */}
-                <motion.div 
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full"
-                >
-                  <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-amber-500/5 rounded-bl-full pointer-events-none" />
-                  <div>
-                    <div className="flex justify-between items-start mb-3 sm:mb-6">
-                      <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
-                        <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
-                      </div>
-                      <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
-                        15 Mins
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Use of English</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
-                      Master phonetics, word stress patterns, and professional pronunciation keys. Gain insights on standard exam guidelines, suffix shifts, and phonetic traps.
-                    </p>
+                    {/* Economics Card */}
+                    <motion.div 
+                      key="economics"
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                      className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full"
+                    >
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-amber-500/5 rounded-bl-full pointer-events-none" />
+                      <div>
+                        <div className="flex justify-between items-start mb-2 sm:mb-6">
+                          <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
+                            <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
+                          </div>
+                          <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
+                            15 Mins
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Economics</h3>
+                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
+                          Test your mastery of monetary principles, Keynesian liquidity demand motives, stagflation mechanics, and inflation.
+                        </p>
 
-                    <div className="space-y-2.5 mb-8 hidden sm:block">
-                      <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
-                        <Flame size={14} className="text-amber-600" />
-                        <span>15 High-Yield JAMB & UNIBEN Past Items</span>
+                        <div className="space-y-2.5 mb-8 hidden sm:block">
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <Flame size={14} className="text-amber-600" />
+                            <span>15 High-Yield Sourced Questions</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <ShieldCheck size={14} className="text-amber-600" />
+                            <span>Focus on Money & Inflation</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
-                        <ShieldCheck size={14} className="text-amber-600" />
-                        <span>Strategic Advice & Suffix Rules Included</span>
-                      </div>
-                    </div>
-                  </div>
 
-                  <button
-                    onClick={() => startQuiz('ENGLISH')}
-                    className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
-                  >
-                    <span className="hidden sm:inline">Launch English Drill</span>
-                    <span className="inline sm:hidden">Launch</span>
-                    <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
-                  </button>
-                </motion.div>
+                      <button
+                        onClick={() => startQuiz('ECONOMICS')}
+                        className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
+                      >
+                        <span className="hidden sm:inline">Launch Economics</span>
+                        <span className="inline sm:hidden">Launch</span>
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </motion.div>
+                  </>
+                ) : (
+                  <>
+                    {/* Government Card */}
+                    <motion.div 
+                      key="government"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                      className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full"
+                    >
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-emerald-500/5 rounded-bl-full pointer-events-none" />
+                      <div>
+                        <div className="flex justify-between items-start mb-2 sm:mb-6">
+                          <div className="p-1.5 sm:p-3.5 bg-emerald-50 text-emerald-700 rounded-xl sm:rounded-2xl border border-emerald-100/60">
+                            <GraduationCap className="w-5 h-5 sm:w-7 sm:h-7" />
+                          </div>
+                          <span className="bg-emerald-50 text-emerald-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
+                            15 Mins
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Government</h3>
+                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
+                          Evaluate your grasp on political parties, pressure groups, electoral structures, and key power classification frameworks. Ideal for JAMB & Post-UTME candidates.
+                        </p>
+
+                        <div className="space-y-2.5 mb-8 hidden sm:block">
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <Flame size={14} className="text-emerald-600" />
+                            <span>15 Curated Comprehensive Questions</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <ShieldCheck size={14} className="text-emerald-600" />
+                            <span>Interactive Proctored Mode Enabled</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => startQuiz('GOVERNMENT')}
+                        className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-emerald-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-emerald-100 flex items-center justify-center gap-1 sm:gap-2 group"
+                      >
+                        <span className="hidden sm:inline">Launch Government Drill</span>
+                        <span className="inline sm:hidden">Launch</span>
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </motion.div>
+
+                    {/* Use of English Card */}
+                    <motion.div 
+                      key="use_of_english"
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                      className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full"
+                    >
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-amber-500/5 rounded-bl-full pointer-events-none" />
+                      <div>
+                        <div className="flex justify-between items-start mb-2 sm:mb-6">
+                          <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
+                            <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
+                          </div>
+                          <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
+                            15 Mins
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Use of English</h3>
+                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
+                          Master phonetics, word stress patterns, and professional pronunciation keys. Gain insights on standard exam guidelines, suffix shifts, and phonetic traps.
+                        </p>
+
+                        <div className="space-y-2.5 mb-8 hidden sm:block">
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <Flame size={14} className="text-amber-600" />
+                            <span>15 High-Yield JAMB & UNIBEN Past Items</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <ShieldCheck size={14} className="text-amber-600" />
+                            <span>Strategic Advice & Suffix Rules Included</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => startQuiz('ENGLISH')}
+                        className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
+                      >
+                        <span className="hidden sm:inline">Launch English Drill</span>
+                        <span className="inline sm:hidden">Launch</span>
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </motion.div>
+                  </>
+                )}
 
               </div>
 

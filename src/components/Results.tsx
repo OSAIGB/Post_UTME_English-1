@@ -24,6 +24,8 @@ const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   CHEMISTRY: 'Chemistry (Electrolysis)',
   BIOLOGY: 'Biology (Heredity & Variation)',
   GOVERNMENT: 'Government (Political Parties & Pressure Groups)',
+  GENERAL_PAPER: 'General Paper (Current Affairs & History)',
+  ECONOMICS: 'Economics (Money & Inflation)',
 };
 
 export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
@@ -177,10 +179,13 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
               
               <div className="p-4 bg-white/10 rounded-xl border border-white/20">
                 <p className="text-sm font-medium opacity-90 mb-2 uppercase tracking-widest text-emerald-200">
-                  {analysis.subject === 'ENGLISH' ? 'Strategic Professional Advice for Use of English' : 'Suggested Next Steps'}
+                  {analysis.subject === 'ENGLISH' && 'Strategic Professional Advice for Use of English'}
+                  {analysis.subject === 'GENERAL_PAPER' && 'Strategic Professional Advice for General Paper'}
+                  {analysis.subject === 'ECONOMICS' && 'Strategic Professional Advice for Economics'}
+                  {analysis.subject === 'GOVERNMENT' && 'Strategic Professional Advice for Government'}
                 </p>
                 <ul className="space-y-3">
-                  {analysis.subject === 'ENGLISH' ? (
+                  {analysis.subject === 'ENGLISH' && (
                     <>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
@@ -199,7 +204,44 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                         <span><strong>Practice Without Audio:</strong> Learn to identify sounds visually; frequent trap questions use words like <em>Coup</em> (sounding like <em>coo</em>) to test spelling vs. phonetics.</span>
                       </li>
                     </>
-                  ) : (
+                  )}
+                  {analysis.subject === 'GENERAL_PAPER' && (
+                    <>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Administrative History:</strong> Memorize pivotal historical dates such as the creation of the first 12 states (May 27, 1967) and the movement of the capital city to Abuja (December 12, 1991).</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Pioneering Figures:</strong> Study outstanding national leaders and educational leaders (e.g., Herbert Macaulay's nationalism milestones and Prof. Grace Alele Williams as Nigeria's first female VC).</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Regional History:</strong> Have a solid grasp of key pre-colonial administrative setups, such as the roles within the Benin Empire (e.g., the Iyiasere as traditional Prime Minister).</span>
+                      </li>
+                    </>
+                  )}
+                  {analysis.subject === 'ECONOMICS' && (
+                    <>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Monetary Interventions:</strong> Remember that during high inflation, the Central Bank sells treasury bills under Open Market Operations (OMO) to restrict the money supply.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Liquidity Motives:</strong> Review the Keynesian motives for holding cash—transactional, speculative, and precautionary (for emergencies like illness or accidents).</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Velocity & Quantity Theory:</strong> Master the Equation of Exchange (MV=PY) and understand that velocity of money is Nominal GDP / Money Supply.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Unemployment and Inflation:</strong> Be ready for stagflation questions where high unemployment and persistent inflation occur simultaneously.</span>
+                      </li>
+                    </>
+                  )}
+                  {analysis.subject === 'GOVERNMENT' && (
                     <>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
