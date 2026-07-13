@@ -26,6 +26,7 @@ const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   GOVERNMENT: 'Government (Political Parties & Pressure Groups)',
   GENERAL_PAPER: 'General Paper (Current Affairs & History)',
   ECONOMICS: 'Economics (Money & Inflation)',
+  ENGLISH: 'English Language Quick Drill',
 };
 
 export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
@@ -180,12 +181,14 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
               <div className="p-4 bg-white/10 rounded-xl border border-white/20">
                 <p className="text-sm font-medium opacity-90 mb-2 uppercase tracking-widest text-emerald-200">
                   {analysis.subject === 'ENGLISH' && 'Strategic Professional Advice for Use of English'}
+                  {analysis.subject === 'ENGLISH_DRILL' && 'Strategic Professional Advice for English Quick Drill'}
+                  {analysis.subject === 'PHYSICS_DRILL' && 'Strategic Professional Advice for Physics Quick Drill'}
                   {analysis.subject === 'GENERAL_PAPER' && 'Strategic Professional Advice for General Paper'}
                   {analysis.subject === 'ECONOMICS' && 'Strategic Professional Advice for Economics'}
                   {analysis.subject === 'GOVERNMENT' && 'Strategic Professional Advice for Government'}
                 </p>
                 <ul className="space-y-3">
-                  {analysis.subject === 'ENGLISH' && (
+                  {(analysis.subject === 'ENGLISH' || analysis.subject === 'ENGLISH_DRILL') && (
                     <>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
@@ -197,11 +200,27 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                       </li>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
-                        <span><strong>Noun vs. Verb stress:</strong> Be careful with words that change stress based on speech part (e.g., <strong>EXPORT</strong> (noun) has 1st-syllable stress, while <strong>export</strong> (verb) has 2nd-syllable stress).</span>
+                        <span><strong>Emphatic Stress:</strong> The correct response always contradicts or directly questions the capitalized word (e.g., in '<strong>EMEKA</strong> finished...', the focus is on *Who* finished).</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
                         <span><strong>Practice Without Audio:</strong> Learn to identify sounds visually; frequent trap questions use words like <em>Coup</em> (sounding like <em>coo</em>) to test spelling vs. phonetics.</span>
+                      </li>
+                    </>
+                  )}
+                  {analysis.subject === 'PHYSICS_DRILL' && (
+                    <>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Faraday's Laws:</strong> Mass deposited is directly proportional to quantity of charge (m = zIt). Always convert time into seconds before performing calculations!</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Electrolytic Purification:</strong> Make sure the impure/crude metal is connected to the positive terminal (anode), while the pure metal is the negative terminal (cathode).</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
+                        <span><strong>Gaseous Conduction:</strong> Conduction of electricity through gases is achieved primarily under extremely low pressure and highly elevated potential difference.</span>
                       </li>
                     </>
                   )}
