@@ -33,5 +33,5 @@ export interface ResultAnalysis {
   strengths: string[];
   weaknesses: string[];
   recommendation: string;
-  subject?: 'GOVERNMENT' | 'ENGLISH' | 'GENERAL_PAPER' | 'ECONOMICS' | 'PHYSICS_DRILL' | 'ENGLISH_DRILL';
+  subject?: 'GOVERNMENT' | 'ENGLISH' | 'GENERAL_PAPER' | 'ECONOMICS' | 'PHYSICS_DRILL' | 'ENGLISH_DRILL' | 'CHEMISTRY_DRILL' | 'CRS_DRILL';
 }

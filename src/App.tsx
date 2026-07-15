@@ -12,6 +12,8 @@ import { GENERAL_QUESTIONS } from './data/general_paper/uniben_general';
 import { ECONOMICS_QUESTIONS } from './data/economics/money_inflation';
 import { LIQUIDS_GASES_QUESTIONS } from './data/physics/liquids_gases';
 import { ENGLISH_QUICK_DRILL_QUESTIONS } from './data/english/quick_drill';
+import { ORGANIC_CHEMISTRY_QUESTIONS } from './data/chemistry/organic_chemistry';
+import { CRS_ENGLISH_DRILL_QUESTIONS } from './data/english/concord_rhymes_stress';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
 import { AntiCheatGuard } from './components/AntiCheatGuard';
@@ -19,25 +21,27 @@ import { QuizState, ResultAnalysis, QuestionCategory } from './types';
 
 export default function App() {
   const [gameState, setGameState] = useState<'START' | 'QUIZ' | 'RESULTS'>('START');
-  const [selectedSubject, setSelectedSubject] = useState<'PHYSICS_DRILL' | 'ENGLISH_DRILL' | 'GENERAL_PAPER' | 'ECONOMICS' | 'GOVERNMENT' | 'ENGLISH'>('PHYSICS_DRILL');
+  const [selectedSubject, setSelectedSubject] = useState<'PHYSICS_DRILL' | 'ENGLISH_DRILL' | 'GENERAL_PAPER' | 'ECONOMICS' | 'GOVERNMENT' | 'ENGLISH' | 'CHEMISTRY_DRILL' | 'CRS_DRILL'>('CHEMISTRY_DRILL');
   const [cheatWarnings, setCheatWarnings] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
   const [timeLeft, setTimeLeft] = useState(15 * 60); // Default to 15 minutes in seconds
   const [showHiddenMenu, setShowHiddenMenu] = useState(false);
 
-  const startQuiz = (subject: 'PHYSICS_DRILL' | 'ENGLISH_DRILL' | 'GENERAL_PAPER' | 'ECONOMICS' | 'GOVERNMENT' | 'ENGLISH') => {
+  const startQuiz = (subject: 'PHYSICS_DRILL' | 'ENGLISH_DRILL' | 'GENERAL_PAPER' | 'ECONOMICS' | 'GOVERNMENT' | 'ENGLISH' | 'CHEMISTRY_DRILL' | 'CRS_DRILL') => {
     setSelectedSubject(subject);
     let questionsCount = 15;
     if (subject === 'PHYSICS_DRILL') questionsCount = LIQUIDS_GASES_QUESTIONS.length;
     else if (subject === 'ENGLISH_DRILL') questionsCount = ENGLISH_QUICK_DRILL_QUESTIONS.length;
+    else if (subject === 'CHEMISTRY_DRILL') questionsCount = ORGANIC_CHEMISTRY_QUESTIONS.length;
+    else if (subject === 'CRS_DRILL') questionsCount = CRS_ENGLISH_DRILL_QUESTIONS.length;
     else if (subject === 'GENERAL_PAPER') questionsCount = GENERAL_QUESTIONS.length;
     else if (subject === 'ECONOMICS') questionsCount = ECONOMICS_QUESTIONS.length;
     else if (subject === 'GOVERNMENT') questionsCount = GOVERNMENT_QUESTIONS.length;
     else if (subject === 'ENGLISH') questionsCount = ENGLISH_QUESTIONS.length;
 
     setAnswers(new Array(questionsCount).fill(null));
-    if (subject === 'PHYSICS_DRILL' || subject === 'ENGLISH_DRILL') {
+    if (subject === 'PHYSICS_DRILL' || subject === 'ENGLISH_DRILL' || subject === 'CHEMISTRY_DRILL' || subject === 'CRS_DRILL') {
       setTimeLeft(3 * 60); // 3 minutes for quick drills
     } else if (subject === 'GENERAL_PAPER' || subject === 'ECONOMICS') {
       setTimeLeft(4 * 60); // 4 minutes tops for General Paper and Economics
@@ -67,6 +71,8 @@ export default function App() {
   const activeQuestions = useMemo(() => {
     if (selectedSubject === 'PHYSICS_DRILL') return LIQUIDS_GASES_QUESTIONS;
     if (selectedSubject === 'ENGLISH_DRILL') return ENGLISH_QUICK_DRILL_QUESTIONS;
+    if (selectedSubject === 'CHEMISTRY_DRILL') return ORGANIC_CHEMISTRY_QUESTIONS;
+    if (selectedSubject === 'CRS_DRILL') return CRS_ENGLISH_DRILL_QUESTIONS;
     if (selectedSubject === 'GENERAL_PAPER') return GENERAL_QUESTIONS;
     if (selectedSubject === 'ECONOMICS') return ECONOMICS_QUESTIONS;
     if (selectedSubject === 'GOVERNMENT') return GOVERNMENT_QUESTIONS;
@@ -130,6 +136,22 @@ export default function App() {
       } else {
         recommendation = "Keep studying Use of English. Review basic vowel/consonant sound associations, rhyming patterns, and how emphatic stress answers specific contrasting questions.";
       }
+    } else if (selectedSubject === 'CHEMISTRY_DRILL') {
+      if (percentage >= 80) {
+        recommendation = "Outstanding Organic Chemistry mastery! Your understanding of IUPAC nomenclature, reaction mechanisms, and the structural properties of different homologous series is exceptional.";
+      } else if (percentage >= 60) {
+        recommendation = "Good grasp of Organic Chemistry concepts. We recommend revising IUPAC rules for branched chains and specific test reagents like Fehling's solution.";
+      } else {
+        recommendation = "Focus on organic chemistry basics. Revise the general formulas for homologous series, hybridization concepts, and the distinct test reactions for different functional groups.";
+      }
+    } else if (selectedSubject === 'CRS_DRILL') {
+      if (percentage >= 80) {
+        recommendation = "Exceptional understanding of English vocabulary, correct spellings, and syllable stress patterns! Your mastery of concord rules and idioms is outstanding.";
+      } else if (percentage >= 60) {
+        recommendation = "Commendable performance in the English drill. Practice identifying primary stress and irregular spellings (such as 'guerrilla' and 'maintenance') to boost your score.";
+      } else {
+        recommendation = "Review Use of English fundamentals. Pay close attention to subject-verb concord rules (like 'as well as' and 'each of') and basic phonetic sounds to improve.";
+      }
     } else if (selectedSubject === 'GENERAL_PAPER') {
       if (percentage >= 80) {
         recommendation = "Exceptional historical and political awareness! Your knowledge of Nigerian pioneers, historical treaties, and landmark ICJ judgments is top-tier.";
@@ -178,7 +200,7 @@ export default function App() {
 
   return (
     <AntiCheatGuard warnings={cheatWarnings} onWarning={handleWarning}>
-      <div className={`${gameState === 'START' ? 'h-[100dvh] overflow-hidden' : 'min-h-screen'} bg-slate-50 text-gray-900 font-sans selection:bg-emerald-100 select-none flex flex-col justify-between`}>
+      <div className="min-h-screen bg-slate-50 text-gray-900 font-sans selection:bg-emerald-100 select-none flex flex-col justify-between">
         <AnimatePresence mode="wait">
           {gameState === 'START' && (
             <motion.div
@@ -186,7 +208,7 @@ export default function App() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              className="max-w-6xl mx-auto w-full px-3 sm:px-6 py-2 sm:py-6 md:py-16 flex flex-col items-center justify-center flex-grow overflow-hidden"
+              className="max-w-6xl mx-auto w-full px-3 sm:px-6 py-4 sm:py-8 flex flex-col items-center justify-center flex-grow"
             >
               {/* Brand Header */}
               <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4 bg-white px-3 sm:px-5 py-1 sm:py-2.5 rounded-full shadow-sm border border-slate-100">
@@ -202,9 +224,9 @@ export default function App() {
               
               <p className="max-w-2xl text-[11px] sm:text-sm md:text-base text-slate-500 text-center mb-2 sm:mb-6 leading-relaxed px-2">
                 A specialized, secure diagnostic sandbox designed to measure and elevate your performance. {showHiddenMenu ? (
-                  <>Evaluate your precision in <strong className="text-slate-800">General Paper</strong>, <strong className="text-slate-800">Economics</strong>, <strong className="text-slate-800">Government</strong>, or <strong className="text-slate-800">Use of English</strong> today.</>
+                  <>Evaluate your precision in <strong className="text-slate-800">General Paper</strong>, <strong className="text-slate-800">Economics</strong>, <strong className="text-slate-800">Government</strong>, <strong className="text-slate-800">Use of English</strong>, or try our <strong className="text-slate-800">Physics</strong> & <strong className="text-slate-800">English</strong> quick drills today.</>
                 ) : (
-                  <>Attempt our high-yield <strong className="text-slate-800">Physics</strong> and <strong className="text-slate-800">English Language</strong> quick drills now.</>
+                  <>Attempt our high-yield <strong className="text-slate-800">Organic Chemistry</strong> and <strong className="text-slate-800">CRS English</strong> quick drills now.</>
                 )}
               </p>
 
@@ -229,9 +251,9 @@ export default function App() {
                 
                 {!showHiddenMenu ? (
                   <>
-                    {/* Physics Quick Drill Card */}
+                    {/* Chemistry Quick Drill Card */}
                     <motion.div 
-                      key="physics_drill"
+                      key="chemistry_drill"
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       whileHover={{ y: -6, transition: { duration: 0.2 } }}
@@ -248,36 +270,36 @@ export default function App() {
                           </span>
                         </div>
                         
-                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Physics Quick Drill</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
-                          Test your knowledge of Liquids (electrolytes and electrolysis) and Gases (conduction and discharge tube phenomena).
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Chemistry Quick Drill</h3>
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
+                          Master Organic Chemistry requirements: IUPAC nomenclature, reaction mechanisms, and homologous series.
                         </p>
 
                         <div className="space-y-2.5 mb-8 hidden sm:block">
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <Flame size={14} className="text-emerald-600" />
-                            <span>15 Curated Post-UTME Questions</span>
+                            <span>15 High-Yield Curated Questions</span>
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <ShieldCheck size={14} className="text-emerald-600" />
-                            <span>Liquids, Gases, and Faraday's Laws</span>
+                            <span>Aliphatic, Aromatic & Functional Groups</span>
                           </div>
                         </div>
                       </div>
 
                       <button
-                        onClick={() => startQuiz('PHYSICS_DRILL')}
+                        onClick={() => startQuiz('CHEMISTRY_DRILL')}
                         className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-emerald-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-emerald-100 flex items-center justify-center gap-1 sm:gap-2 group"
                       >
-                        <span className="hidden sm:inline">Launch Physics Drill</span>
+                        <span className="hidden sm:inline">Launch Chemistry Drill</span>
                         <span className="inline sm:hidden">Launch</span>
                         <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
                       </button>
                     </motion.div>
 
-                    {/* English Quick Drill Card */}
+                    {/* CRS English Quick Drill Card */}
                     <motion.div 
-                      key="english_drill"
+                      key="crs_drill"
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       whileHover={{ y: -6, transition: { duration: 0.2 } }}
@@ -294,9 +316,9 @@ export default function App() {
                           </span>
                         </div>
                         
-                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">English Quick Drill</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
-                          Sharpen your skills in Vowels, Consonants, Rhymes, Word Stress, and Emphatic Stress questions.
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">CRS English Drill</h3>
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
+                          Excel in your Use of English: highly targeted questions on Concord, Rhymes, sounds, Stress, and spellings.
                         </p>
 
                         <div className="space-y-2.5 mb-8 hidden sm:block">
@@ -306,16 +328,16 @@ export default function App() {
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <ShieldCheck size={14} className="text-amber-600" />
-                            <span>Oral English & Emphatic Stress Focus</span>
+                            <span>Concord, Rhymes & Stress Focus</span>
                           </div>
                         </div>
                       </div>
 
                       <button
-                        onClick={() => startQuiz('ENGLISH_DRILL')}
+                        onClick={() => startQuiz('CRS_DRILL')}
                         className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
                       >
-                        <span className="hidden sm:inline">Launch English Drill</span>
+                        <span className="hidden sm:inline">Launch CRS Drill</span>
                         <span className="inline sm:hidden">Launch</span>
                         <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
                       </button>
@@ -343,7 +365,7 @@ export default function App() {
                         </div>
                         
                         <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">General Paper</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
                           Evaluate your knowledge of Nigerian history, current affairs, local administrative milestones, and key pioneers.
                         </p>
 
@@ -389,7 +411,7 @@ export default function App() {
                         </div>
                         
                         <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Economics</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
                           Test your mastery of monetary principles, Keynesian liquidity motives, and inflation dynamics.
                         </p>
 
@@ -435,7 +457,7 @@ export default function App() {
                         </div>
                         
                         <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Government</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
                           Evaluate your grasp on political parties, pressure groups, electoral structures, and power classification frameworks.
                         </p>
 
@@ -481,7 +503,7 @@ export default function App() {
                         </div>
                         
                         <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Use of English</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-6 hidden sm:block">
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
                           Master phonetics, oral word stress, and key pronunciation traps in standard examinations.
                         </p>
 
@@ -502,6 +524,98 @@ export default function App() {
                         className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
                       >
                         <span className="hidden sm:inline">Launch English</span>
+                        <span className="inline sm:hidden">Launch</span>
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </motion.div>
+
+                    {/* Physics Quick Drill Card */}
+                    <motion.div 
+                      key="physics_drill_other"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                      className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full mt-3 sm:mt-0"
+                    >
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-emerald-500/5 rounded-bl-full pointer-events-none" />
+                      <div>
+                        <div className="flex justify-between items-start mb-2 sm:mb-6">
+                           <div className="p-1.5 sm:p-3.5 bg-emerald-50 text-emerald-700 rounded-xl sm:rounded-2xl border border-emerald-100/60">
+                            <GraduationCap className="w-5 h-5 sm:w-7 sm:h-7" />
+                          </div>
+                          <span className="bg-emerald-50 text-emerald-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
+                            3 Mins
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Physics Quick Drill</h3>
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
+                          Test your knowledge of Liquids (electrolytes and electrolysis) and Gases (conduction and discharge tube phenomena).
+                        </p>
+
+                        <div className="space-y-2.5 mb-8 hidden sm:block">
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <Flame size={14} className="text-emerald-600" />
+                            <span>15 Curated Post-UTME Questions</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <ShieldCheck size={14} className="text-emerald-600" />
+                            <span>Liquids, Gases, and Faraday's Laws</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => startQuiz('PHYSICS_DRILL')}
+                        className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-emerald-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-emerald-100 flex items-center justify-center gap-1 sm:gap-2 group"
+                      >
+                        <span className="hidden sm:inline">Launch Physics Drill</span>
+                        <span className="inline sm:hidden">Launch</span>
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </motion.div>
+
+                    {/* English Quick Drill Card */}
+                    <motion.div 
+                      key="english_drill_other"
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                      className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full mt-3 sm:mt-0"
+                    >
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-amber-500/5 rounded-bl-full pointer-events-none" />
+                      <div>
+                        <div className="flex justify-between items-start mb-2 sm:mb-6">
+                          <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
+                            <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
+                          </div>
+                          <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
+                            3 Mins
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">English Quick Drill</h3>
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
+                          Sharpen your skills in Vowels, Consonants, Rhymes, Word Stress, and Emphatic Stress questions.
+                        </p>
+
+                        <div className="space-y-2.5 mb-8 hidden sm:block">
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <Flame size={14} className="text-amber-600" />
+                            <span>15 High-Yield Syllabus Questions</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <ShieldCheck size={14} className="text-amber-600" />
+                            <span>Oral English & Emphatic Stress Focus</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => startQuiz('ENGLISH_DRILL')}
+                        className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
+                      >
+                        <span className="hidden sm:inline">Launch English Drill</span>
                         <span className="inline sm:hidden">Launch</span>
                         <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
                       </button>
