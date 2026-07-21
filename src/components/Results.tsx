@@ -20,13 +20,14 @@ const CATEGORY_LABELS: Record<QuestionCategory, string> = {
   LEXIS_STRUCTURE: 'Use of English & Word Stress',
   SYNONYMS: 'Synonyms (Vocabulary)',
   ANTONYMS: 'Antonyms (Vocabulary)',
-  PHYSICS: 'Physics (Sound & Acoustics)',
-  CHEMISTRY: 'Chemistry (Electrolysis)',
-  BIOLOGY: 'Biology (Heredity & Variation)',
-  GOVERNMENT: 'Government (Political Parties & Pressure Groups)',
-  GENERAL_PAPER: 'General Paper (Current Affairs & History)',
+  PHYSICS: 'Physics (Equilibrium & Friction / Liquids)',
+  CHEMISTRY: 'Chemistry (Organic Chemistry)',
+  BIOLOGY: 'Biology (Characteristics & Cell Organisation)',
+  GOVERNMENT: 'Government (Governance Systems & Political Science)',
   ECONOMICS: 'Economics (Money & Inflation)',
-  ENGLISH: 'English Language Quick Drill',
+  ENGLISH: 'Use of English & Phonetics',
+  LITERATURE: 'Literature-in-English (Literary Analysis & Terms)',
+  GENERAL_PAPER: 'General Paper (Current Affairs & History)',
 };
 
 export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
@@ -183,9 +184,12 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                   {analysis.subject === 'ENGLISH' && 'Strategic Professional Advice for Use of English'}
                   {analysis.subject === 'ENGLISH_DRILL' && 'Strategic Professional Advice for English Quick Drill'}
                   {analysis.subject === 'PHYSICS_DRILL' && 'Strategic Professional Advice for Physics Quick Drill'}
-                  {analysis.subject === 'GENERAL_PAPER' && 'Strategic Professional Advice for General Paper'}
+                  {analysis.subject === 'BIOLOGY_DRILL' && 'Strategic Professional Advice for Biology Quick Drill'}
+                  {analysis.subject === 'LITERATURE_DRILL' && 'Strategic Professional Advice for Literature Drill'}
                   {analysis.subject === 'ECONOMICS' && 'Strategic Professional Advice for Economics'}
                   {analysis.subject === 'GOVERNMENT' && 'Strategic Professional Advice for Government'}
+                  {analysis.subject === 'GOVERNMENT_DRILL' && 'Strategic Professional Advice for Government Drill'}
+                  {analysis.subject === 'CHEMISTRY_DRILL' && 'Strategic Professional Advice for Chemistry Quick Drill'}
                 </p>
                 <ul className="space-y-3">
                   {(analysis.subject === 'ENGLISH' || analysis.subject === 'ENGLISH_DRILL') && (
@@ -208,35 +212,35 @@ export const Results: React.FC<ResultsProps> = ({ analysis, onRestart }) => {
                       </li>
                     </>
                   )}
-                  {analysis.subject === 'PHYSICS_DRILL' && (
+                  {analysis.subject === 'BIOLOGY_DRILL' && (
                     <>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
-                        <span><strong>Faraday's Laws:</strong> Mass deposited is directly proportional to quantity of charge (m = zIt). Always convert time into seconds before performing calculations!</span>
+                        <span><strong>Organelle Function Specialization:</strong> Mitochondria produce ATP energy; Lysosomes perform autolysis and digestion; Chloroplasts convert light into chemical energy via chlorophyll.</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
-                        <span><strong>Electrolytic Purification:</strong> Make sure the impure/crude metal is connected to the positive terminal (anode), while the pure metal is the negative terminal (cathode).</span>
+                        <span><strong>Levels of Organisation:</strong> Remember that a group of similar cells working together form a <em>tissue</em> (e.g., xylem, blood), which combines into an <em>organ</em> (e.g., leaf, heart).</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
-                        <span><strong>Gaseous Conduction:</strong> Conduction of electricity through gases is achieved primarily under extremely low pressure and highly elevated potential difference.</span>
+                        <span><strong>Irritability & Excretion:</strong> Irritability is environmental sensitivity; Excretion removes metabolic waste (e.g., urea, CO₂)—do not confuse excretion with egestion!</span>
                       </li>
                     </>
                   )}
-                  {analysis.subject === 'GENERAL_PAPER' && (
+                  {analysis.subject === 'LITERATURE_DRILL' && (
                     <>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
-                        <span><strong>Administrative History:</strong> Memorize pivotal historical dates such as the creation of the first 12 states (May 27, 1967) and the movement of the capital city to Abuja (December 12, 1991).</span>
+                        <span><strong>Figures of Speech:</strong> An <em>Oxymoron</em> juxtaposes contradictory words side by side (e.g., 'bittersweet'), whereas a <em>Paradox</em> is a self-contradictory statement containing deeper truth.</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
-                        <span><strong>Pioneering Figures:</strong> Study outstanding national leaders and educational leaders (e.g., Herbert Macaulay's nationalism milestones and Prof. Grace Alele Williams as Nigeria's first female VC).</span>
+                        <span><strong>Dramatic Devices:</strong> An <em>Aside</em> is spoken directly to the audience while other characters on stage are presumed unheard; a <em>Soliloquy</em> is delivered alone on stage.</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <ArrowRight size={18} className="mt-0.5 flex-shrink-0 text-emerald-200" />
-                        <span><strong>Regional History:</strong> Have a solid grasp of key pre-colonial administrative setups, such as the roles within the Benin Empire (e.g., the Iyiasere as traditional Prime Minister).</span>
+                        <span><strong>Metrical Foot:</strong> An <em>Iamb</em> consists of an unstressed syllable followed by a stressed syllable (da-DUM). Five iambic feet in a line form <em>Iambic Pentameter</em>.</span>
                       </li>
                     </>
                   )}

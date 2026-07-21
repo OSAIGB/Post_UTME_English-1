@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export type QuestionCategory = 'COMPREHENSION' | 'IDIOMS' | 'LEXIS_STRUCTURE' | 'SYNONYMS' | 'ANTONYMS' | 'PHYSICS' | 'CHEMISTRY' | 'BIOLOGY' | 'GOVERNMENT' | 'GENERAL_PAPER' | 'ECONOMICS' | 'ENGLISH';
+export type QuestionCategory = 'COMPREHENSION' | 'IDIOMS' | 'LEXIS_STRUCTURE' | 'SYNONYMS' | 'ANTONYMS' | 'PHYSICS' | 'CHEMISTRY' | 'BIOLOGY' | 'GOVERNMENT' | 'ECONOMICS' | 'ENGLISH' | 'LITERATURE' | 'GENERAL_PAPER';
 
 export interface Question {
   id: number;
@@ -33,5 +33,5 @@ export interface ResultAnalysis {
   strengths: string[];
   weaknesses: string[];
   recommendation: string;
-  subject?: 'GOVERNMENT' | 'ENGLISH' | 'GENERAL_PAPER' | 'ECONOMICS' | 'PHYSICS_DRILL' | 'ENGLISH_DRILL' | 'CHEMISTRY_DRILL' | 'CRS_DRILL';
+  subject?: 'GOVERNMENT' | 'ENGLISH' | 'ECONOMICS' | 'PHYSICS_DRILL' | 'ENGLISH_DRILL' | 'CHEMISTRY_DRILL' | 'GOVERNMENT_DRILL' | 'PHYSICS_LIQUIDS' | 'GOVERNMENT_POLITICAL' | 'BIOLOGY_DRILL' | 'LITERATURE_DRILL';
 }
