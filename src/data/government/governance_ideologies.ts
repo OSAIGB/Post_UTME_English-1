@@ -9,196 +9,211 @@ export const GOVERNMENT_QUESTIONS: Question[] = [
   {
     id: 1,
     category: 'GOVERNMENT',
-    text: "Which of the following is NOT a characteristic of the parliamentary system of government?",
+    sourceYear: 'Foreign Policy',
+    text: "Foreign Policy professionally refers to:",
     options: [
-      "Ministers are usually members of parliament",
-      "The Prime Minister is politically responsible to the parliament",
-      "The Head of State is the powerful organ of government",
-      "The Head of Government may advise the Head of State to dissolve parliament"
+      "A policy made by a country when it is at war",
+      "The general principles of a state’s international behaviour",
+      "A policy made by a foreign country",
+      "A policy made by a country for foreigners"
     ],
-    correctAnswer: 2,
-    explanation: "In a parliamentary system, the Head of State (monarch or president) is typically a ceremonial figurehead with limited executive powers. True political and executive power is concentrated in the Head of Government (the Prime Minister) and the cabinet."
+    correctAnswer: 1,
+    explanation: "Foreign policy comprises the strategies, principles, and decisions pursued by a sovereign state to guide its interactions and diplomatic behavior with other nations and international bodies."
   },
   {
     id: 2,
     category: 'GOVERNMENT',
-    text: "In a presidential system of government, the Executive:",
+    sourceYear: 'Foreign Policy',
+    text: "Nigeria's foreign policy since independence has primarily focused on:",
     options: [
-      "executes its own laws only",
-      "legislates all binding laws",
-      "makes laws for the National Assembly",
-      "forms the government"
+      "Globalism",
+      "Sub-regionalism",
+      "South-South cooperation",
+      "Afrocentrism"
     ],
     correctAnswer: 3,
-    explanation: "In a presidential system, the President is both the Head of State and Head of Government, and has the sole authority to appoint cabinet ministers and form the government, independent of direct legislative membership."
+    explanation: "Afrocentrism (Africa as the centerpiece of Nigeria's foreign policy) has remained a bedrock doctrine, prioritizing the defense, unity, and development of African nations."
   },
   {
     id: 3,
     category: 'GOVERNMENT',
-    text: "In a monarchical form of government, sovereignty resides with:",
+    sourceYear: 'Foreign Policy',
+    text: "Nigeria famously broke diplomatic relations with France in 1961 due to:",
     options: [
-      "the council of ministers",
-      "royalty",
-      "peasantry",
-      "the entire citizenry"
+      "France's atomic bomb tests in the Sahara Desert",
+      "France's diplomatic relations with Israel",
+      "General de-Gaulle’s negative attitude toward Nigeria",
+      "Poor relations with Francophone neighbours"
     ],
-    correctAnswer: 1,
-    explanation: "In a monarchy, supreme political power and sovereignty are vested in a single hereditary ruler, such as a king, queen, or emperor, representing royalty."
+    correctAnswer: 0,
+    explanation: "In January 1961, Nigeria severed diplomatic relations with France in protest against French nuclear bomb tests conducted in Reggane, Algerian Sahara."
   },
   {
     id: 4,
     category: 'GOVERNMENT',
-    text: "A major factor that differentiates the presidential from the parliamentary system is:",
+    sourceYear: 'Foreign Policy',
+    text: "The first Nigerian leader to serve as the Chairman of the Organization of African Unity (OAU) was:",
     options: [
-      "separation of powers",
-      "judicial independence",
-      "passage of bills",
-      "party system"
+      "Tafawa Balewa",
+      "Murtala Muhammed",
+      "Yakubu Gowon",
+      "Johnson Aguiyi-Ironsi"
     ],
-    correctAnswer: 0,
-    explanation: "The hallmark of a presidential system is a strict separation of powers between the executive, legislative, and judicial branches, whereas the parliamentary system features a fusion of powers where executive members are drawn from the legislature."
+    correctAnswer: 1,
+    explanation: "General Murtala Muhammed played a pivotal leadership role in OAU affairs, notably during the historic 1976 Extraordinary Summit on Angola."
   },
   {
     id: 5,
     category: 'GOVERNMENT',
-    text: "In the parliamentary system, when the parliament defeats a major government bill, the:",
+    sourceYear: 'Foreign Policy',
+    text: "The adoption of non-alignment as a foreign policy principle was specifically aimed at:",
     options: [
-      "prime minister dissolves parliament",
-      "entire cabinet resigns",
-      "speaker resigns",
-      "opposition immediately forms a new government"
+      "Attaining equal status with world powers",
+      "Promoting leadership aspirations in Africa",
+      "Insulating Nigeria against having to take sides in the Cold War",
+      "Fulfilling a requirement for the UN Security Council"
     ],
-    correctAnswer: 1,
-    explanation: "Because the cabinet is collectively responsible to parliament, the defeat of a major government bill is viewed as a vote of no confidence, forcing the entire cabinet/government to resign or call for a general election."
+    correctAnswer: 2,
+    explanation: "Non-alignment allowed newly independent states like Nigeria to maintain sovereignty and avoid being entangled in the bipolar rivalry between the US and Soviet blocs during the Cold War."
   },
   {
     id: 6,
     category: 'GOVERNMENT',
-    text: "Which system of government empowers the leader with the ultimate responsibility to execute laws?",
+    sourceYear: 'Foreign Policy',
+    text: "Which country is credited with pioneering the idea of ECOWAS alongside Nigeria?",
     options: [
-      "parliamentarianism",
-      "presidentialism",
-      "dictatorship",
-      "autocracy"
+      "Ghana",
+      "Togo",
+      "Algeria",
+      "Cameroun"
     ],
     correctAnswer: 1,
-    explanation: "Presidentialism places the supreme executive power and final responsibility for executing and enforcing laws onto the President, who functions as an independent, singular executive head."
+    explanation: "Gen. Yakubu Gowon of Nigeria and Gen. Gnassingbé Eyadéma of Togo spearheaded the diplomatic initiative that culminated in the signing of the Treaty of Lagos establishing ECOWAS in 1975."
   },
   {
     id: 7,
     category: 'GOVERNMENT',
-    text: "In a cabinet system of government, individual responsibility of ministers means that:",
+    sourceYear: 'Foreign Policy',
+    text: "Nigeria's participation in ECOMOG was initially perceived by some as partisan, but it was fundamentally informed by her desire for:",
     options: [
-      "only ministers can be held responsible for errors",
-      "a minister must hold his subordinates responsible for his failures",
-      "the prime minister can remove an erring minister",
-      "no individual can be held responsible for government decisions"
+      "Peace and stability in the sub-region",
+      "Chairmanship of ECOWAS",
+      "Establishing a military high command",
+      "Promoting democracy"
     ],
-    correctAnswer: 2,
-    explanation: "Individual ministerial responsibility dictates that each minister is personally accountable to parliament and the head of government for the running of their department. If a minister errs, the Prime Minister has the power to dismiss or reassign them."
+    correctAnswer: 0,
+    explanation: "Nigeria's leadership and heavy funding of ECOMOG in West Africa (such as in Liberia and Sierra Leone) were driven by a commitment to maintaining regional peace, security, and humanitarian stability."
   },
   {
     id: 8,
     category: 'GOVERNMENT',
-    text: "Capitalism is an economic system in which:",
+    sourceYear: 'Foreign Policy',
+    text: "The prominent role Nigeria played in the United Nations in the 1970s and 80s led to a Nigerian serving as President of the General Assembly. This individual was:",
     options: [
-      "the economy of the State is centrally planned and controlled",
-      "Private persons are permitted to undertake enterprises",
-      "accumulation of private property is forbidden",
-      "means of production are owned and controlled by the State"
+      "Maitama Sule",
+      "Joseph Garba",
+      "Ibrahim Gambari",
+      "Arthur Mbanefo"
     ],
     correctAnswer: 1,
-    explanation: "Capitalism is characterized by private ownership of the means of production, competitive markets, and the freedom of private individuals and corporations to initiate and manage commercial enterprises."
+    explanation: "Major-General Joseph Nanven Garba served as the President of the 44th Session of the United Nations General Assembly from 1989 to 1990."
   },
   {
     id: 9,
     category: 'GOVERNMENT',
-    text: "A system in which a few powerful and rich nobles own land which is hired out to the poor people to farm is called:",
+    sourceYear: 'Foreign Policy',
+    text: "To contribute to the socio-economic development of other developing nations, Nigeria initiated the Technical Aid Corps during the regime of:",
     options: [
-      "feudalism",
-      "co-operatives",
-      "socialism",
-      "communism"
+      "Ibrahim Babangida",
+      "Muhammadu Buhari",
+      "Olusegun Obasanjo",
+      "Sani Abacha"
     ],
     correctAnswer: 0,
-    explanation: "Feudalism was a medieval political and economic system structured around relationships derived from the holding of land in exchange for service or labor, where rich lords/nobles controlled the land farmed by vassals or serfs."
+    explanation: "The Technical Aid Corps (TAC) scheme was established in 1987 under President Ibrahim Babangida to share Nigerian manpower and expertise with African, Caribbean, and Pacific countries."
   },
   {
     id: 10,
     category: 'GOVERNMENT',
-    text: "According to Marxist theory, those who own and control the means of production in a capitalist society are the:",
+    sourceYear: 'Foreign Policy',
+    text: "In diplomatic parlance, the representative of a Commonwealth country in another member state is known as a/an:",
     options: [
-      "exploiters",
-      "colonialists",
-      "workers",
-      "bourgeoisie"
+      "Ambassador",
+      "Consul-General",
+      "Attaché",
+      "High Commissioner"
     ],
     correctAnswer: 3,
-    explanation: "Karl Marx defined the 'bourgeoisie' as the wealthy class who own and control the capital and means of production (factories, land, machinery) in a capitalist society, opposing the 'proletariat' (working class)."
+    explanation: "Diplomatic representatives sent between member states of the Commonwealth of Nations hold the rank of High Commissioner rather than Ambassador."
   },
   {
     id: 11,
     category: 'GOVERNMENT',
-    text: "One of the central tenets of the fascist doctrine is that the leader is:",
+    sourceYear: 'Foreign Policy',
+    text: "A major contribution of the Organization of Petroleum Exporting Countries (OPEC) to the Nigerian economy is the:",
     options: [
-      "supreme relative to the constitution",
-      "subordinate to the norms of the society",
-      "subordinate to the laws of the state",
-      "weak relative to the constitution"
+      "Provision of social infrastructure",
+      "Granting of subsidies on petroleum",
+      "Stabilization of oil prices",
+      "Building of domestic refineries"
     ],
-    correctAnswer: 0,
-    explanation: "Fascism rejects constitutional limits, establishing a dictatorial regime where the supreme leader holds total authority and is elevated above the law, the constitution, and all other state institutions."
+    correctAnswer: 2,
+    explanation: "OPEC coordinates production quotas among member nations to stabilize international crude oil prices and protect oil revenues for exporting countries like Nigeria."
   },
   {
     id: 12,
     category: 'GOVERNMENT',
-    text: "The creation of a classless society is the ultimate aim of:",
+    sourceYear: 'Foreign Policy',
+    text: "Nigeria was suspended from the Commonwealth of Nations in 1995 primarily due to:",
     options: [
-      "communism",
-      "capitalism",
-      "socialism",
-      "fascism"
+      "Economic instability",
+      "Legal disputes",
+      "Political reasons (Violation of human rights)",
+      "Socio-cultural differences"
     ],
-    correctAnswer: 0,
-    explanation: "According to Marxist-Leninist ideology, communism is a stateless, classless, and moneyless society where the community owns all property and resources collectively, resolving class struggle."
+    correctAnswer: 2,
+    explanation: "Nigeria was suspended following the execution of Ken Saro-Wiwa and eight other Ogoni activists by the Sani Abacha military tribunal, violating the Commonwealth's Harare Declaration on human rights."
   },
   {
     id: 13,
     category: 'GOVERNMENT',
-    text: "A feature of communalism is that:",
+    sourceYear: 'Foreign Policy',
+    text: "The foreign affairs minister who introduced \"economic diplomacy\" as a cornerstone of Nigerian foreign policy was:",
     options: [
-      "Ownership of land is vested in the community",
-      "a landowner can employ landless men",
-      "landless men have no privileges as citizens",
-      "Sovereignty is identified with landed property"
+      "Prof. Bolaji Akinyemi",
+      "Major-General Ike Nwachukwu",
+      "Prof. Ibrahim Gambari",
+      "Major-General Joseph Garba"
     ],
-    correctAnswer: 0,
-    explanation: "Communalism is a traditional system of social organization where land and other primary resources are held in common ownership by the community or kinship group rather than as private property."
+    correctAnswer: 1,
+    explanation: "Major-General Ike Nwachukwu launched 'Economic Diplomacy' in 1988 to align foreign relations with Nigeria's economic restructuring and attract foreign direct investment."
   },
   {
     id: 14,
     category: 'GOVERNMENT',
-    text: "Nazism as a doctrine was proposed by:",
+    sourceYear: 'Foreign Policy',
+    text: "Nigeria's departure from a pro-West policy to a more radical stance, such as recognizing the MPLA in Angola, occurred under the:",
     options: [
-      "Benito Mussolini",
-      "Adolf Hitler",
-      "Karl Marx",
-      "Joseph Stalin"
+      "Gowon Regime",
+      "Murtala/Obasanjo Regime",
+      "Shagari Administration",
+      "Buhari Regime"
     ],
     correctAnswer: 1,
-    explanation: "Nazism (National Socialism) was the totalitarian ideology of the Nazi Party in Germany, led and formulated primarily by Adolf Hitler, combining extreme nationalism, anti-Semitism, and racial hierarchy."
+    explanation: "In late 1975, the Murtala/Obasanjo military administration took a bold, pan-Africanist stance by recognizing the Marxist MPLA government in Angola against Western and South African-backed forces."
   },
   {
     id: 15,
     category: 'GOVERNMENT',
-    text: "Liberalism is a philosophy that underlines:",
+    sourceYear: 'Foreign Policy',
+    text: "Nigeria’s support for South-South Cooperation is predicated on the desire to:",
     options: [
-      "socialism",
-      "capitalism",
-      "feudalism",
-      "Nazism"
+      "Assert leadership over the Equator",
+      "Form a sub-regional military high command",
+      "Promote economic understanding among Third World nations",
+      "Counter the influence of the African Union"
     ],
-    correctAnswer: 1,
-    explanation: "Liberalism emphasizes individual liberty, private property rights, limited government, and free markets, which are the fundamental philosophical and ideological foundations of capitalism."
+    correctAnswer: 2,
+    explanation: "South-South Cooperation fosters mutual economic, technical, and trade partnerships among developing countries (the Global South) to reduce dependency on traditional Western donors."
   }
 ];

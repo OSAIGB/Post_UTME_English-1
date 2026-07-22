@@ -162,11 +162,11 @@ export default function App() {
       }
     } else if (selectedSubject === 'CHEMISTRY_DRILL') {
       if (percentage >= 80) {
-        recommendation = "Outstanding Organic Chemistry mastery! Your understanding of IUPAC nomenclature, reaction mechanisms, and the structural properties of different homologous series is exceptional.";
+        recommendation = "Outstanding Chemistry mastery! Your understanding of Energy Changes (ΔH, entropy, free energy ΔG) and Reaction Rates (activation energy, collision theory, rate laws) is exceptional.";
       } else if (percentage >= 60) {
-        recommendation = "Good grasp of Organic Chemistry concepts. We recommend revising IUPAC rules for branched chains and specific test reagents like Fehling's solution.";
+        recommendation = "Good grasp of chemical energetics and kinetics. We recommend revising entropy changes (+ΔS) and surface area/concentration factors in reaction rates.";
       } else {
-        recommendation = "Focus on organic chemistry basics. Revise the general formulas for homologous series, hybridization concepts, and the distinct test reactions for different functional groups.";
+        recommendation = "Focus on fundamental chemical thermodynamics and kinetics. Review ΔG = ΔH - TΔS, collision dynamics, and factors affecting reaction rates.";
       }
     } else if (selectedSubject === 'ECONOMICS') {
       if (percentage >= 80) {
@@ -178,11 +178,11 @@ export default function App() {
       }
     } else if (selectedSubject === 'GOVERNMENT_DRILL') {
       if (percentage >= 80) {
-        recommendation = "Exceptional understanding of governance systems and political ideologies! Your knowledge of presidentialism, parliamentarianism, capitalism, and Marxist theories is top-tier.";
+        recommendation = "Exceptional mastery of Foreign Policy and diplomatic relations! Your knowledge of Afrocentrism, ECOWAS, non-alignment, and international organisations is top-tier.";
       } else if (percentage >= 60) {
-        recommendation = "Good grasp of government systems and ideologies. We recommend studying the specific characteristics of feudalism, fascism, and collective responsibility to perfect your score.";
+        recommendation = "Good grasp of foreign policy principles. We recommend studying specific diplomatic events (e.g. 1961 France atomic tests, ECOMOG, Economic Diplomacy) to perfect your score.";
       } else {
-        recommendation = "There is room for growth. Focus on core distinctions between presidential and parliamentary executives, and the primary features of communalism vs. capitalism.";
+        recommendation = "There is room for growth in Foreign Policy. Focus on core concepts like Afrocentrism, Commonwealth relations, non-alignment, and regional integration.";
       }
     } else if (selectedSubject === 'GOVERNMENT_POLITICAL') {
       if (percentage >= 80) {
@@ -248,9 +248,9 @@ export default function App() {
               
               <p className="max-w-2xl text-[11px] sm:text-sm md:text-base text-slate-500 text-center mb-2 sm:mb-6 leading-relaxed px-2">
                 A specialized, secure diagnostic sandbox designed to measure and elevate your performance. {showHiddenMenu ? (
-                  <>Evaluate your precision in <strong className="text-slate-800">Physics Drills</strong>, <strong className="text-slate-800">Government Drills</strong>, <strong className="text-slate-800">Economics</strong>, <strong className="text-slate-800">Use of English</strong>, <strong className="text-slate-800">Liquids & Gases</strong>, and <strong className="text-slate-800">Organic Chemistry</strong>.</>
+                  <>Evaluate your precision in <strong className="text-slate-800">Physics Drills</strong>, <strong className="text-slate-800">Biology Drills</strong>, <strong className="text-slate-800">Economics</strong>, <strong className="text-slate-800">Use of English</strong>, <strong className="text-slate-800">Liquids & Gases</strong>, and <strong className="text-slate-800">Literature-in-English</strong>.</>
                 ) : (
-                  <>Attempt our high-yield <strong className="text-slate-800">Biology</strong> and <strong className="text-slate-800">Literature-in-English</strong> quick drills now.</>
+                  <>Attempt our high-yield <strong className="text-slate-800">Chemistry</strong> (Energy Changes & Reaction Rates) and <strong className="text-slate-800">Government</strong> (Foreign Policy) quick drills now.</>
                 )}
               </p>
 
@@ -275,9 +275,9 @@ export default function App() {
                 
                 {!showHiddenMenu ? (
                   <>
-                    {/* Biology Quick Drill Card */}
+                    {/* Chemistry Quick Drill Card */}
                     <motion.div 
-                      key="biology_drill"
+                      key="chemistry_drill"
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       whileHover={{ y: -6, transition: { duration: 0.2 } }}
@@ -287,43 +287,43 @@ export default function App() {
                       <div>
                         <div className="flex justify-between items-start mb-2 sm:mb-6">
                           <div className="p-1.5 sm:p-3.5 bg-emerald-50 text-emerald-700 rounded-xl sm:rounded-2xl border border-emerald-100/60">
-                            <Dna className="w-5 h-5 sm:w-7 sm:h-7" />
+                            <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
                           </div>
                           <span className="bg-emerald-50 text-emerald-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
                             3 Mins
                           </span>
                         </div>
                         
-                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Biology Quick Drill</h3>
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Chemistry Quick Drill</h3>
                         <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
-                          Master living characteristics, cellular organelle functions (tonoplast, lysosomes), and levels of organisation.
+                          Master Energy Changes (ΔH, Entropy, Spontaneity) and Rates of Chemical Reaction dynamics.
                         </p>
 
                         <div className="space-y-2.5 mb-8 hidden sm:block">
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <Flame size={14} className="text-emerald-600" />
-                            <span>15 High-Yield Sourced Questions</span>
+                            <span>15 High-Yield Curated Questions</span>
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <ShieldCheck size={14} className="text-emerald-600" />
-                            <span>Living Organisms, Cells & Organisation</span>
+                            <span>Energy Changes & Reaction Kinetics</span>
                           </div>
                         </div>
                       </div>
 
                       <button
-                        onClick={() => startQuiz('BIOLOGY_DRILL')}
+                        onClick={() => startQuiz('CHEMISTRY_DRILL')}
                         className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-emerald-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-emerald-100 flex items-center justify-center gap-1 sm:gap-2 group"
                       >
-                        <span className="hidden sm:inline">Launch Biology Drill</span>
+                        <span className="hidden sm:inline">Launch Chemistry Drill</span>
                         <span className="inline sm:hidden">Launch</span>
                         <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
                       </button>
                     </motion.div>
 
-                    {/* Literature Drill Card */}
+                    {/* Government Drill Card */}
                     <motion.div 
-                      key="literature_drill"
+                      key="government_ideologies_drill"
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       whileHover={{ y: -6, transition: { duration: 0.2 } }}
@@ -333,16 +333,16 @@ export default function App() {
                       <div>
                         <div className="flex justify-between items-start mb-2 sm:mb-6">
                           <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
-                            <BookText className="w-5 h-5 sm:w-7 sm:h-7" />
+                            <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
                           </div>
                           <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
                             3 Mins
                           </span>
                         </div>
                         
-                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Literature Drill</h3>
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Government Drill</h3>
                         <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
-                          Master technical literary terms, allegory, dramatic devices, figures of speech, and metrical analysis.
+                          Evaluate your knowledge of Foreign Policy principles, Afrocentrism, ECOWAS, ECOMOG, and diplomatic relations.
                         </p>
 
                         <div className="space-y-2.5 mb-8 hidden sm:block">
@@ -352,16 +352,16 @@ export default function App() {
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <ShieldCheck size={14} className="text-amber-600" />
-                            <span>Literary Terms, Figures & Analysis</span>
+                            <span>Foreign Policy & International Relations</span>
                           </div>
                         </div>
                       </div>
 
                       <button
-                        onClick={() => startQuiz('LITERATURE_DRILL')}
+                        onClick={() => startQuiz('GOVERNMENT_DRILL')}
                         className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
                       >
-                        <span className="hidden sm:inline">Launch Literature Drill</span>
+                        <span className="hidden sm:inline">Launch Government Drill</span>
                         <span className="inline sm:hidden">Launch</span>
                         <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
                       </button>
@@ -415,9 +415,9 @@ export default function App() {
                       </button>
                     </motion.div>
 
-                    {/* Government Quick Drill (Systems & Ideologies) Card */}
+                    {/* Biology Quick Drill Card */}
                     <motion.div 
-                      key="government_ideologies_drill"
+                      key="biology_drill"
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       whileHover={{ y: -6, transition: { duration: 0.2 } }}
@@ -427,16 +427,16 @@ export default function App() {
                       <div>
                         <div className="flex justify-between items-start mb-2 sm:mb-6">
                           <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
-                            <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
+                            <Dna className="w-5 h-5 sm:w-7 sm:h-7" />
                           </div>
                           <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
                             3 Mins
                           </span>
                         </div>
                         
-                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Government Drill</h3>
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Biology Quick Drill</h3>
                         <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
-                          Evaluate your precision on Systems of Governance (Presidential, Parliamentary, Monarchical) and Political Ideologies.
+                          Master living characteristics, cellular organelle functions (tonoplast, lysosomes), and levels of organisation.
                         </p>
 
                         <div className="space-y-2.5 mb-8 hidden sm:block">
@@ -446,16 +446,16 @@ export default function App() {
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <ShieldCheck size={14} className="text-amber-600" />
-                            <span>Governance Systems & Ideologies</span>
+                            <span>Living Organisms, Cells & Organisation</span>
                           </div>
                         </div>
                       </div>
 
                       <button
-                        onClick={() => startQuiz('GOVERNMENT_DRILL')}
+                        onClick={() => startQuiz('BIOLOGY_DRILL')}
                         className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
                       >
-                        <span className="hidden sm:inline">Launch Government Drill</span>
+                        <span className="hidden sm:inline">Launch Biology Drill</span>
                         <span className="inline sm:hidden">Launch</span>
                         <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
                       </button>
@@ -690,9 +690,9 @@ export default function App() {
                       </button>
                     </motion.div>
 
-                    {/* Chemistry Quick Drill Card */}
+                    {/* Literature Drill Card */}
                     <motion.div 
-                      key="chemistry_drill"
+                      key="literature_drill"
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       whileHover={{ y: -6, transition: { duration: 0.2 } }}
@@ -701,36 +701,36 @@ export default function App() {
                       <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-amber-500/5 rounded-bl-full pointer-events-none" />
                       <div>
                         <div className="flex justify-between items-start mb-2 sm:mb-6">
-                           <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
-                            <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
+                          <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
+                            <BookText className="w-5 h-5 sm:w-7 sm:h-7" />
                           </div>
                           <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
                             3 Mins
                           </span>
                         </div>
                         
-                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Chemistry Quick Drill</h3>
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Literature Drill</h3>
                         <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
-                          Master Organic Chemistry requirements: IUPAC nomenclature, reaction mechanisms, and homologous series.
+                          Master technical literary terms, allegory, dramatic devices, figures of speech, and metrical analysis.
                         </p>
 
                         <div className="space-y-2.5 mb-8 hidden sm:block">
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <Flame size={14} className="text-amber-600" />
-                            <span>15 High-Yield Curated Questions</span>
+                            <span>15 High-Yield Sourced Questions</span>
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <ShieldCheck size={14} className="text-amber-600" />
-                            <span>Aliphatic, Aromatic & Functional Groups</span>
+                            <span>Literary Terms, Figures & Analysis</span>
                           </div>
                         </div>
                       </div>
 
                       <button
-                        onClick={() => startQuiz('CHEMISTRY_DRILL')}
+                        onClick={() => startQuiz('LITERATURE_DRILL')}
                         className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
                       >
-                        <span className="hidden sm:inline">Launch Chemistry Drill</span>
+                        <span className="hidden sm:inline">Launch Literature Drill</span>
                         <span className="inline sm:hidden">Launch</span>
                         <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
                       </button>

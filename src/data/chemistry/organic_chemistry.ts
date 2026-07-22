@@ -9,211 +9,211 @@ export const ORGANIC_CHEMISTRY_QUESTIONS: Question[] = [
   {
     id: 1,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "The tetravalency of carbon is fundamentally explained by the fact that:",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "An endothermic reaction is one during which heat is _____ and is represented by the symbol _____.",
     options: [
-      "the electrons in all orbitals are equivalent",
-      "the electrons in the 2s and 2p orbitals hybridize",
-      "carbon has an atomic number of six",
-      "carbon belongs to group IV of the periodic table"
+      "liberated, -ΔH",
+      "liberated, +ΔH",
+      "absorbed, -ΔH",
+      "absorbed, +ΔH"
     ],
-    correctAnswer: 1,
-    explanation: "The tetravalency of carbon is explained by hybridization, where the 2s and 2p orbitals mix to form four equivalent sp3 hybrid orbitals, allowing carbon to form four stable covalent bonds."
+    correctAnswer: 3,
+    explanation: "An endothermic reaction absorbs heat energy from its surroundings, which gives it a positive enthalpy change (+ΔH)."
   },
   {
     id: 2,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "Which of the following is the correct general molecular formula for the alkane homologous series?",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "When sodium hydroxide (NaOH) flakes are dissolved in water, the reaction is characterized as:",
     options: [
-      "C_n H_{2n}",
-      "C_n H_{2n–2}",
-      "C_n H_{2n+2}",
-      "C_n H_{2n} O_2"
+      "a slow reaction",
+      "an endothermic change",
+      "an exothermic change",
+      "a rapid reaction"
     ],
     correctAnswer: 2,
-    explanation: "The general formula for alkanes (saturated hydrocarbons) is C_n H_{2n+2}."
+    explanation: "Dissolving NaOH in water releases heat to the surroundings, causing a noticeable rise in temperature (an exothermic process)."
   },
   {
     id: 3,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "Identify the IUPAC nomenclature for the following branched hydrocarbon: CH3-CH(CH3)-CH2-CH=CH2",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "A chemical reaction is professionally described as taking place spontaneously if the change in free energy (ΔG) is:",
     options: [
-      "4-methylpent-1-ene",
-      "3-methylpent-2-ene",
-      "2-methylpent-1-ene",
-      "2-methylpent-4-ene"
+      "zero",
+      "greater than zero",
+      "less than zero",
+      "equal to the change in entropy"
     ],
-    correctAnswer: 0,
-    explanation: "The longest continuous carbon chain containing the double bond has 5 carbon atoms (pentene). Numbering starts from the end nearest the double bond (right to left): C1=C2-C3-C4-C5. The methyl group is attached to carbon 4, giving 4-methylpent-1-ene."
+    correctAnswer: 2,
+    explanation: "According to thermodynamic principles, a reaction occurs spontaneously if ΔG < 0 (negative free energy change)."
   },
   {
     id: 4,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "Which of the following organic compounds is a structural isomer of pentane (C5H12)?",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "In chemical thermodynamics, the state of equilibrium is achieved when the change in free energy (ΔG) for the system is:",
     options: [
-      "2-ethylbutane",
-      "butane",
-      "2-methylbutane",
-      "2-methylprop-1-ene"
+      "positive",
+      "negative",
+      "zero",
+      "at its maximum"
     ],
     correctAnswer: 2,
-    explanation: "Pentane (C5H12) has three structural isomers: n-pentane, 2-methylbutane (isopentane), and 2,2-dimethylpropane (neopentane)."
+    explanation: "At chemical equilibrium, the rate of forward reaction equals the rate of reverse reaction, and ΔG = 0."
   },
   {
     id: 5,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "The process of heating large hydrocarbon molecules at high temperatures in the presence of a catalyst to obtain smaller, more volatile molecules is known as:",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "Which of the following physical processes results in a positive entropy change (increased disorder)?",
     options: [
-      "disintegration",
-      "polymerization",
-      "cracking",
-      "reforming"
+      "Solidifying candle wax",
+      "Freezing of water",
+      "Mixing of gases",
+      "Condensation of vapour"
     ],
     correctAnswer: 2,
-    explanation: "Cracking is the thermal or catalytic breakdown of heavy, long-chain petroleum hydrocarbons into lighter, more valuable short-chain products like petrol."
+    explanation: "Mixing of gases increases the overall randomness and dispersion of particles in the system, producing a positive entropy change (+ΔS)."
   },
   {
     id: 6,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "Geometric isomerism (cis-trans isomerism) is most likely to exist in which of the following compounds?",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "A positive entropy change is observed during the:",
     options: [
-      "hex-3-ene",
-      "hexane",
-      "prop-1-ene",
-      "3-methylbut-1-ene"
+      "reaction between an acid and a base",
+      "addition of concentrated acid to water",
+      "thermal dissociation of ammonium chloride",
+      "cooling of a saturated solution"
     ],
-    correctAnswer: 0,
-    explanation: "Geometric isomerism occurs when there is restricted rotation around a double bond and each of the doubly bonded carbons has two different groups attached. In hex-3-ene (CH3-CH2-CH=CH-CH2-CH3), each double-bonded carbon is attached to a hydrogen and an ethyl group, allowing cis-trans structures."
+    correctAnswer: 2,
+    explanation: "Thermal dissociation of solid ammonium chloride into ammonia and hydrogen chloride gases increases the number of gas moles, resulting in increased disorder (+ΔS)."
   },
   {
     id: 7,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "When water is added to calcium carbide in a container, the gas produced is ethyne, which burns with a:",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "If a chemical reaction is exothermic (-ΔH) and is accompanied by a great increase in disorder (+ΔS), it will result in a:",
     options: [
-      "blue flame",
-      "non-luminous flame",
-      "sooty flame",
-      "smokeless flame"
+      "static reaction",
+      "state of equilibrium",
+      "large increase in free energy",
+      "large decrease in free energy"
     ],
-    correctAnswer: 2,
-    explanation: "Ethyne (acetylene) has a very high carbon-to-hydrogen ratio, which causes incomplete combustion in normal air, producing a highly luminous and smoky (sooty) flame."
+    correctAnswer: 3,
+    explanation: "From ΔG = ΔH - TΔS, when ΔH is negative and ΔS is positive, ΔG is highly negative (a large decrease in free energy), making the reaction highly spontaneous at all temperatures."
   },
   {
     id: 8,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "Benzene reacts with hydrogen in the presence of a nickel catalyst at 180°C to produce:",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "The highest rate of production of carbon (IV) oxide from the reaction between marble (CaCO₃) and hydrochloric acid (HCl) is achieved using:",
     options: [
-      "xylene",
-      "toluene",
-      "cyclopentane",
-      "cyclohexane"
+      "0.05 mol/dm³ HCl and 5g lump CaCO₃",
+      "0.025 mol/dm³ HCl and 5g powdered CaCO₃",
+      "0.10 mol/dm³ HCl and 5g powdered CaCO₃",
+      "0.05 mol/dm³ HCl and 5g powdered CaCO₃"
     ],
-    correctAnswer: 3,
-    explanation: "The catalytic hydrogenation of benzene (C6H6) using nickel at 180°C yields cyclohexane (C6H12)."
+    correctAnswer: 2,
+    explanation: "Reaction rate increases with higher reactant concentration (0.10 mol/dm³ HCl) and larger surface area (powdered CaCO₃)."
   },
   {
     id: 9,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "The biochemical process of converting starch or sugar into ethanol using yeast as a source of enzymes is professionally termed:",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "In the preparation of oxygen by heating KClO₃, the addition of MnO₂ acts as a catalyst by:",
     options: [
-      "cracking",
-      "distillation",
-      "fermentation",
-      "oxidation"
+      "increasing the surface area of the reactant",
+      "increasing the total heat of reaction",
+      "lowering the energy barrier (activation energy) of the reaction",
+      "lowering the pressure of the reaction"
     ],
     correctAnswer: 2,
-    explanation: "Fermentation is the anaerobic biochemical breakdown of organic substances (like sugars) by micro-organisms like yeast to produce ethanol and carbon dioxide."
+    explanation: "A catalyst speeds up a chemical reaction by providing an alternative reaction pathway with a lower activation energy barrier."
   },
   {
     id: 10,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "Alkanals can be distinguished from alkanones by their reaction with which specific reagent?",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "An increase in temperature increases the rate of reaction because it results in:",
     options: [
-      "Sudan III stain",
-      "starch iodide paper",
-      "lithium tetrahydridoaluminate (III)",
-      "Fehling’s solution"
+      "a decrease in the number of effective collisions",
+      "a lower proportion of molecules with minimum energy",
+      "a higher proportion of molecules possessing the necessary activation energy",
+      "a decrease in the velocity of gas molecules"
     ],
-    correctAnswer: 3,
-    explanation: "Alkanals (aldehydes) are strong reducing agents and easily reduce Fehling's solution to form a brick-red precipitate of copper(I) oxide, whereas alkanones (ketones) are not oxidized and show no reaction."
+    correctAnswer: 2,
+    explanation: "Higher temperatures increase average kinetic energy, so a significantly larger fraction of molecular collisions exceed the required activation energy."
   },
   {
     id: 11,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "The chemical reaction between ethanoic acid (CH3COOH) and ethanol (C2H5OH) in the presence of concentrated H2SO4 is best described as:",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "In a chemical reaction, the rate is professionally defined as the:",
     options: [
-      "esterification",
-      "condensation",
-      "saponification",
-      "neutralization"
+      "change in enthalpy with time",
+      "change in entropy with time",
+      "change in the concentration of a reactant or product with time",
+      "total energy required for the reaction"
     ],
-    correctAnswer: 0,
-    explanation: "The acid-catalyzed reversible reaction between an organic acid and an alkanol to form an ester (ethyl ethanoate) and water is called esterification."
+    correctAnswer: 2,
+    explanation: "Reaction rate measures how fast reactants are consumed or products are formed, defined as change in concentration per unit time."
   },
   {
     id: 12,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "The alkaline hydrolysis of an alkanoate (fat or oil) to produce soap and an alkanol is known as:",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "For a reaction involving gaseous reactants, an increase in total pressure typically increases the rate because:",
     options: [
-      "acidification",
-      "hydration",
-      "saponification",
-      "esterification"
+      "it decreases the collision frequency",
+      "it increases the effective concentration of the reactants",
+      "it decreases the density of the gas",
+      "it provides an alternative reaction pathway"
     ],
-    correctAnswer: 2,
-    explanation: "Saponification is the alkaline hydrolysis of fats or oils (esters of glycerol and long-chain fatty acids) with an alkali (like NaOH) to produce soap and glycerol."
+    correctAnswer: 1,
+    explanation: "Increasing pressure forces gas molecules closer together in a smaller volume, effectively increasing their concentration and collision frequency."
   },
   {
     id: 13,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "Which of the following represents a primary amine?",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "Doubling the initial concentration of a reactant in a system where the rate is proportional to the square of that concentration increases the rate by a factor of:",
     options: [
-      "(CH3)3N",
-      "CH3NH2",
-      "CH3C-NH2",
-      "(CH3)2NH"
+      "two",
+      "three",
+      "four",
+      "five"
     ],
-    correctAnswer: 1,
-    explanation: "A primary amine has one alkyl group attached to the nitrogen atom (R-NH2), such as methylamine (CH3NH2)."
+    correctAnswer: 2,
+    explanation: "If Rate ∝ [A]², doubling [A] yields (2)² = 4 times the initial rate."
   },
   {
     id: 14,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "An example of a polysaccharide that can be detected using the iodine test is:",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "An increase in the temperature of a gas in a fixed volume causes an increase in pressure and reaction rate primarily due to:",
     options: [
-      "dextrose",
-      "mannose",
-      "glucose",
-      "starch"
+      "an increase in the number of gas molecules",
+      "a decrease in the density of the molecules",
+      "an increase in the frequency and violence of collisions between molecules",
+      "the molecules combining to form larger particles"
     ],
-    correctAnswer: 3,
-    explanation: "Starch is a polysaccharide that forms an intense blue-black complex in the presence of iodine."
+    correctAnswer: 2,
+    explanation: "Heating increases kinetic energy and particle velocity, causing molecules to collide more frequently and with greater force/violence against each other and container walls."
   },
   {
     id: 15,
     category: 'CHEMISTRY',
-    sourceYear: 'Organic Chemistry',
-    text: "A hydrocarbon contains 0.12 moles of carbon and 0.36 moles of hydrogen. What is its empirical formula?",
+    sourceYear: 'Energy Changes & Reaction Rates',
+    text: "If the rate equation for a reaction X + Y → Z is given as Rate = k[X]²[Y], the overall order of the reaction is:",
     options: [
-      "CH2",
-      "CH3",
-      "C2H2",
-      "C2H4"
+      "1",
+      "2",
+      "3",
+      "0"
     ],
-    correctAnswer: 1,
-    explanation: "To find the empirical formula, divide each mole value by the smallest: Carbon = 0.12 / 0.12 = 1, Hydrogen = 0.36 / 0.12 = 3. The empirical formula is CH3."
+    correctAnswer: 2,
+    explanation: "The overall order of reaction is the sum of exponents in the rate law: 2 + 1 = 3."
   }
 ];
