@@ -9,211 +9,211 @@ export const ECONOMICS_QUESTIONS: Question[] = [
   {
     id: 1,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN & JAMB Economics',
-    text: "The specific function of money that enables the division of labour and specialisation within an economy is its role as a:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "The primary objective of public finance is to promote:",
     options: [
-      "unit of account",
-      "store of value",
-      "medium of exchange",
-      "standard of deferred payment"
+      "government revenue drive and minimize government expenditure",
+      "full employment, national income and price stability",
+      "the expansion of government social-services",
+      "revenue sharing and profit maximization"
     ],
-    correctAnswer: 2,
-    explanation: "As a medium of exchange, money eliminates the double coincidence of wants associated with barter, thereby facilitating seamless trade, specialization, and division of labour."
+    correctAnswer: 1,
+    explanation: "Public finance utilizes fiscal policies (taxation and government spending) to achieve key macroeconomic objectives, including full employment, national income growth, and price stability."
   },
   {
     id: 2,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN Post-UTME',
-    text: "During a period of inflation, the Central Bank typically attempts to reduce the volume of money in circulation by:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "Taxes and government expenditures are the primary instruments utilized in the implementation of:",
     options: [
-      "buying treasury bills",
-      "reducing tax bills",
-      "increasing the money supply",
-      "selling treasury bills"
+      "monetary policy",
+      "tax policy",
+      "regulatory policy",
+      "fiscal policy"
     ],
     correctAnswer: 3,
-    explanation: "By selling treasury bills through Open Market Operations (OMO), the Central Bank absorbs excess liquidity from commercial banks and the public, reducing the overall money supply."
+    explanation: "Fiscal policy refers specifically to the government's use of taxation and spending to monitor and influence a nation's economy."
   },
   {
     id: 3,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN & JAMB Economics',
-    text: "The desire to hold money for unforeseen contingencies or circumstances such as sickness, death, or accidents is professionally termed the:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "Capital gains tax is professionally classified as a form of:",
     options: [
-      "speculative motive",
-      "transactionary motive",
-      "precautionary motive",
-      "promissory motive"
+      "Value Added Tax",
+      "purchase tax",
+      "sales tax",
+      "income tax"
     ],
-    correctAnswer: 2,
-    explanation: "John Maynard Keynes identified three motives for holding money: transactional, precautionary, and speculative. The precautionary motive refers to holding cash for unexpected emergencies."
+    correctAnswer: 3,
+    explanation: "Capital gains tax is a direct tax levied on the profit or income realized from the sale of non-inventory assets such as stocks or real estate."
   },
   {
     id: 4,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN Post-UTME',
-    text: "Which of the following sets correctly identifies the essential characteristics of \"good money\" according to standard economic criteria?",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "According to historical statistical data, the greatest proportion of government revenue in Nigeria is derived from:",
     options: [
-      "acceptability, durability, portability, divisibility, homogeneity, and relative scarcity",
-      "intrinsic value, weight, color, and metal content",
-      "size, shape, age, and material",
-      "liquidity, velocity, and creditworthiness"
+      "export of raw materials",
+      "income taxes on individuals and businesses",
+      "customs duties and excise taxes",
+      "loans and grants from industrially advanced countries"
     ],
     correctAnswer: 0,
-    explanation: "To serve effectively, money must possess key qualities: general acceptability, durability (long life), portability (easy carrying), divisibility, homogeneity (uniformity), and relative scarcity."
+    explanation: "Nigeria historically derives the vast majority of its government revenue and foreign exchange earnings from raw material exports, predominantly crude oil."
   },
   {
     id: 5,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN & JAMB Economics',
-    text: "Inflation is defined to exist within an economy when the aggregate demand for goods and services exceeds the aggregate supply, leading to a shortage. This type of inflation is known as:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "Which of the following is NOT among the fundamental canons of taxation as propounded by Adam Smith?",
     options: [
-      "Cost-push inflation",
-      "Demand-pull inflation",
-      "Stagflation",
-      "Hyperinflation"
+      "Equality",
+      "Security",
+      "Certainty",
+      "Convenience"
     ],
     correctAnswer: 1,
-    explanation: "Demand-pull inflation is caused by excess aggregate demand relative to aggregate supply, often described as 'too much money chasing too few goods.'"
+    explanation: "Adam Smith's four fundamental canons of taxation are Equity (Equality), Certainty, Convenience, and Economy. Security is not one of Smith's canons."
   },
   {
     id: 6,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN Post-UTME',
-    text: "In economic statistics, the velocity of money—the rate at which currency changes hands—is mathematically represented by which of the following ratios?",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "An ad valorem tax is a specific levy that is imposed on:",
     options: [
-      "Money supply / Real GDP",
-      "Real GDP / Money supply",
-      "Nominal GDP / Money supply",
-      "Real GDP / Nominal GDP"
+      "special commodities",
+      "exports",
+      "imports",
+      "the value of a commodity"
     ],
-    correctAnswer: 2,
-    explanation: "From the equation of exchange (MV = PY), Velocity (V) = PY / M, where PY is Nominal GDP (Price level multiplied by Real Output) and M is the Money Supply."
+    correctAnswer: 3,
+    explanation: "An ad valorem tax (meaning 'according to value') is assessed as a percentage of the estimated value of the goods or transactions."
   },
   {
     id: 7,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN & JAMB Economics',
-    text: "In macroeconomic theory, the demand for money specifically for speculative purposes is characterized by:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "The burden of an indirect tax on a commodity will be shared equally between the producer and the consumer if the price elasticity of demand is:",
     options: [
-      "an inverse relationship with the rate of interest",
-      "a direct relationship with the rate of interest",
-      "no relationship with the rate of interest",
-      "a direct relationship with the level of income"
+      "fairly elastic",
+      "perfectly inelastic",
+      "fairly inelastic",
+      "unitary elastic"
     ],
-    correctAnswer: 0,
-    explanation: "The speculative demand for money has an inverse relationship with interest rates. When interest rates are low, people expect them to rise (and bond prices to fall), choosing to hold cash instead."
+    correctAnswer: 3,
+    explanation: "When price elasticity of demand is unitary (Ed = 1) and supply elasticity is equal, the tax incidence is split equally between producers and consumers."
   },
   {
     id: 8,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN Post-UTME',
-    text: "An economic condition where high inflationary pressures occur simultaneously with a high rate of unemployment is professionally known as:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "A major macro-economic effect of a significant increase in government expenditure on a nation’s economy is that it:",
     options: [
-      "hyperinflation",
-      "stagflation",
-      "demand-pull inflation",
-      "cost-push inflation"
+      "creates investment opportunities for foreign investors",
+      "leads to indigenization of the private sector",
+      "raises the level of total tax revenue",
+      "raises the level of aggregate demand"
     ],
-    correctAnswer: 1,
-    explanation: "Stagflation is a portmanteau of 'stagnation' and 'inflation'. It refers to a period of slow economic growth (high unemployment) accompanied by high inflation."
+    correctAnswer: 3,
+    explanation: "Government expenditure is a direct component of aggregate demand (AD = C + I + G + X - M). Increasing G directly shifts aggregate demand upward."
   },
   {
     id: 9,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN & JAMB Economics',
-    text: "If a country uses a base year price index of 100% and it rises to 175% the following year, it can be concluded that:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "A state budget is professionally defined as a fiscal outline of planned:",
     options: [
-      "the cost of living has decreased",
-      "the value of money has risen by 75%",
-      "the value of money has fallen by 75%",
-      "inflation has been completely eradicated"
+      "expenditures and revenues expected within a financial year",
+      "expenditures of ministries and parastatals within a given period",
+      "recurrent and capital expenditures within a year",
+      "sources of revenue derivation for a financial year"
     ],
-    correctAnswer: 2,
-    explanation: "An increase in the price index from 100% to 175% indicates a 75% inflation rate. As general prices rise, the purchasing power or 'value of money' decreases proportionally."
+    correctAnswer: 0,
+    explanation: "A budget is a comprehensive financial forecast detailing expected revenues and proposed expenditures over a specified fiscal year."
   },
   {
     id: 10,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN Post-UTME',
-    text: "Which of the following is a primary instrument utilized by the Central Bank to control inflation within a mixed economy?",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "In the context of Nigerian federalism, the account from which statutory allocations are made to the three tiers of government is the:",
     options: [
-      "Tariff on imports",
-      "Tax rates",
-      "Exchange rates",
-      "Discount rate"
+      "National Income Account",
+      "Public Sector Account",
+      "Federation Account",
+      "Consolidated Revenue Fund"
     ],
-    correctAnswer: 3,
-    explanation: "To curb inflation, the Central Bank raises the discount rate (the rate at which it lends to commercial banks), which raises interest rates across the economy and discourages borrowing and spending."
+    correctAnswer: 2,
+    explanation: "The Federation Account is the central revenue repository where federally collected funds are pooled and shared among the Federal, State, and Local tiers."
   },
   {
     id: 11,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN & JAMB Economics',
-    text: "The \"demand for money\" is professionally defined as the:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "Economic development is distinguishable from economic growth because the former:",
     options: [
-      "amount of money held in fixed deposit accounts",
-      "desire to hold money in tangible assets",
-      "need for money for long-term investment",
-      "desire to hold money in liquid form rather than investing it"
+      "is not concerned with growth parameters",
+      "affects only the poor people",
+      "also includes an efficient distribution of economic growth",
+      "is an increase in the production of goods and services"
     ],
-    correctAnswer: 3,
-    explanation: "The demand for money represents the preference to hold wealth in liquid form (cash/checking accounts) rather than in illiquid, interest-bearing assets or physical capital."
+    correctAnswer: 2,
+    explanation: "While economic growth measures quantitative increases in output/GDP, economic development encompasses growth plus equitable distribution, structural improvements, and better living standards."
   },
   {
     id: 12,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN Post-UTME',
-    text: "A fiscal policy measure effective in controlling demand-pull inflation involves the implementation of:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "Which of the following combinations is recognized by economists as a veritable set of development indicators?",
     options: [
-      "higher income taxes",
-      "lower government interest rates",
-      "increased government expenditure",
-      "reduced corporate profit tax"
+      "Growth of government expenditure and imports",
+      "Growth of population and national income",
+      "High fertility, literacy and school enrolment rates",
+      "Low infant mortality and high per capita income and literacy rate"
     ],
-    correctAnswer: 0,
-    explanation: "Raising income taxes decreases disposable income, which directly lowers private consumption expenditure and aggregate demand, helping to control demand-pull inflation."
+    correctAnswer: 3,
+    explanation: "True economic development combines health indicators (low infant mortality), high educational standards (literacy rates), and strong economic purchasing power (per capita income)."
   },
   {
     id: 13,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN & JAMB Economics',
-    text: "If the Central Bank reduces the total money supply within an economy, the standard outcome is a:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "Which of the following is NOT an obstacle to the economic development of a nation?",
     options: [
-      "fluctuation in rates",
-      "rise in the interest rate",
-      "fall in the interest rate",
-      "constant interest rate"
+      "Low level of investment",
+      "Lack of modern technology",
+      "High rate of population growth",
+      "Dedicated leadership"
     ],
-    correctAnswer: 1,
-    explanation: "According to liquidity preference theory, reducing the supply of money creates a scarcity of loanable funds relative to demand, forcing interest rates upward."
+    correctAnswer: 3,
+    explanation: "Dedicated and visionary leadership is a vital driver of economic progress, not an obstacle to development."
   },
   {
     id: 14,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN Post-UTME',
-    text: "Non-cash assets that are highly liquid and can be readily converted into cash are professionally termed \"near money\" and include:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "National development plans in Nigeria have frequently failed to achieve their targets primarily due to:",
     options: [
-      "coins and banknotes",
-      "liquid assets convertible to gold",
-      "treasury bills and bank deposits",
-      "furniture and industrial machinery"
+      "overdependence on foreign aids",
+      "inadequate funding of projects",
+      "poor implementation strategies",
+      "shortage of skilled manpower"
     ],
     correctAnswer: 2,
-    explanation: "Near money comprises liquid financial assets that are not legal tender themselves but can be quickly converted to cash without loss of value, such as short-term treasury bills, savings accounts, and certificates of deposit."
+    explanation: "Implementation gaps, bureaucratic inefficiencies, policy inconsistency, and weak monitoring strategies have historically undermined national development plans."
   },
   {
     id: 15,
     category: 'ECONOMICS',
-    sourceYear: 'UNIBEN & JAMB Economics',
-    text: "An important characteristic of money that enables an individual to provide for their future needs or old age is its function as a:",
+    sourceYear: 'Public Finance & Economic Growth',
+    text: "A nation’s total public debt is technically composed of both:",
     options: [
-      "medium of exchange",
-      "store of value",
-      "standard of deferred payment",
-      "unit of account"
+      "internal debts and World Bank loans",
+      "money owed to local and foreign contractors",
+      "internal and external debts",
+      "loans granted by the IMF and ADB"
     ],
-    correctAnswer: 1,
-    explanation: "As a store of value, money can be saved, stored, and retrieved in the future, retaining purchasing power across time to fulfill future needs or retirement plans."
+    correctAnswer: 2,
+    explanation: "Public debt encompasses both domestic (internal) borrowings from local financial markets and foreign (external) obligations to multilateral and bilateral creditors."
   }
 ];

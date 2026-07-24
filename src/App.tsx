@@ -130,11 +130,11 @@ export default function App() {
     let recommendation = "";
     if (selectedSubject === 'BIOLOGY_DRILL') {
       if (percentage >= 80) {
-        recommendation = "Exceptional biological precision! Your understanding of living characteristics, cellular organelle functions (nucleus, mitochondria, chloroplasts, lysosomes), and levels of organisation is outstanding.";
+        recommendation = "Exceptional biological precision! Your understanding of natural habitats, local biomes (savanna, rainforest, desert, tundra), xerophyte adaptations, and estuarine salinity dynamics is outstanding.";
       } else if (percentage >= 60) {
-        recommendation = "Good grasp of cellular biology and organisation levels. We recommend revising organelle functions (like tonoplast and lysosomes) and organ vs tissue classifications to achieve perfection.";
+        recommendation = "Good grasp of natural habitats and biomes. We recommend revising plant adaptations (sunken stomata, aerenchyma tissue) and estuarine dynamics to achieve perfection.";
       } else {
-        recommendation = "There is room for improvement in Biology. Focus on core organelle functions, characteristics of living things, and the hierarchy from cells to tissues, organs, and systems.";
+        recommendation = "Focus on natural habitats and biomes in Biology. Review key characteristics of Nigerian biomes (savanna, mangroves), xerophyte adaptations, and aquatic plant buoyancy mechanisms.";
       }
     } else if (selectedSubject === 'LITERATURE_DRILL') {
       if (percentage >= 80) {
@@ -170,11 +170,11 @@ export default function App() {
       }
     } else if (selectedSubject === 'ECONOMICS') {
       if (percentage >= 80) {
-        recommendation = "Outstanding mastery of money and inflation! You clearly understand Keynesian motives for liquidity, OMO tools of central banking, and macroeconomic metrics.";
+        recommendation = "Outstanding mastery of Public Finance and Economic Development! You clearly understand fiscal policy instruments, canons of taxation, Federation Account allocations, and development indicators.";
       } else if (percentage >= 60) {
-        recommendation = "Good grasp of monetary principles. We recommend practicing structural equations (like the equation of exchange) and stagflation characteristics to secure a higher band.";
+        recommendation = "Good grasp of public finance and development economics. We recommend practicing tax incidence principles (unitary elasticity) and indicators distinguishing growth from development.";
       } else {
-        recommendation = "Focus on the basics of economics. Pay close attention to central bank instruments for controlling inflation, standard definitions of near-money, and motives for holding cash.";
+        recommendation = "Focus on the fundamentals of Public Finance and Economic Development. Pay close attention to fiscal policy tools, Adam Smith's canons of taxation, and public debt classifications.";
       }
     } else if (selectedSubject === 'GOVERNMENT_DRILL') {
       if (percentage >= 80) {
@@ -248,9 +248,9 @@ export default function App() {
               
               <p className="max-w-2xl text-[11px] sm:text-sm md:text-base text-slate-500 text-center mb-2 sm:mb-6 leading-relaxed px-2">
                 A specialized, secure diagnostic sandbox designed to measure and elevate your performance. {showHiddenMenu ? (
-                  <>Evaluate your precision in <strong className="text-slate-800">Physics Drills</strong>, <strong className="text-slate-800">Biology Drills</strong>, <strong className="text-slate-800">Economics</strong>, <strong className="text-slate-800">Use of English</strong>, <strong className="text-slate-800">Liquids & Gases</strong>, and <strong className="text-slate-800">Literature-in-English</strong>.</>
+                  <>Evaluate your precision in <strong className="text-slate-800">Chemistry Drills</strong>, <strong className="text-slate-800">Government Drills</strong>, <strong className="text-slate-800">Physics Drills</strong>, <strong className="text-slate-800">Use of English</strong>, <strong className="text-slate-800">Liquids & Gases</strong>, and <strong className="text-slate-800">Literature-in-English</strong>.</>
                 ) : (
-                  <>Attempt our high-yield <strong className="text-slate-800">Chemistry</strong> (Energy Changes & Reaction Rates) and <strong className="text-slate-800">Government</strong> (Foreign Policy) quick drills now.</>
+                  <>Attempt our high-yield <strong className="text-slate-800">Economics</strong> (Public Finance & Economic Growth) and <strong className="text-slate-800">Biology</strong> (Natural Habitats & Local Biomes) quick drills now.</>
                 )}
               </p>
 
@@ -274,6 +274,100 @@ export default function App() {
               <div className="grid grid-cols-2 gap-3 sm:gap-8 w-full max-w-4xl mb-3 sm:mb-12 px-2 sm:px-0">
                 
                 {!showHiddenMenu ? (
+                  <>
+                    {/* Economics Card */}
+                    <motion.div 
+                      key="economics"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                      className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full"
+                    >
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-emerald-500/5 rounded-bl-full pointer-events-none" />
+                      <div>
+                        <div className="flex justify-between items-start mb-2 sm:mb-6">
+                          <div className="p-1.5 sm:p-3.5 bg-emerald-50 text-emerald-700 rounded-xl sm:rounded-2xl border border-emerald-100/60">
+                            <Sparkles className="w-5 h-5 sm:w-7 sm:h-7" />
+                          </div>
+                          <span className="bg-emerald-50 text-emerald-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
+                            3 Mins
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Economics</h3>
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
+                          Test your precision on Public Finance, fiscal policy, canons of taxation, and Economic Growth & Development.
+                        </p>
+
+                        <div className="space-y-2.5 mb-8 hidden sm:block">
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <Flame size={14} className="text-emerald-600" />
+                            <span>15 High-Yield Sourced Questions</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <ShieldCheck size={14} className="text-emerald-600" />
+                            <span>Public Finance & Economic Growth</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => startQuiz('ECONOMICS')}
+                        className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-emerald-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-emerald-100 flex items-center justify-center gap-1 sm:gap-2 group"
+                      >
+                        <span className="hidden sm:inline">Launch Economics</span>
+                        <span className="inline sm:hidden">Launch</span>
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </motion.div>
+
+                    {/* Biology Quick Drill Card */}
+                    <motion.div 
+                      key="biology_drill"
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                      className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden flex flex-col justify-between h-full"
+                    >
+                      <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-amber-500/5 rounded-bl-full pointer-events-none" />
+                      <div>
+                        <div className="flex justify-between items-start mb-2 sm:mb-6">
+                          <div className="p-1.5 sm:p-3.5 bg-amber-50 text-amber-700 rounded-xl sm:rounded-2xl border border-amber-100/60">
+                            <Dna className="w-5 h-5 sm:w-7 sm:h-7" />
+                          </div>
+                          <span className="bg-amber-50 text-amber-800 text-[9px] sm:text-xs font-bold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider">
+                            3 Mins
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Biology Quick Drill</h3>
+                        <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
+                          Master natural habitats, local biomes (savanna, desert, rainforest), xerophytic adaptations, and estuarine ecology.
+                        </p>
+
+                        <div className="space-y-2.5 mb-8 hidden sm:block">
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <Flame size={14} className="text-amber-600" />
+                            <span>15 High-Yield Sourced Questions</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
+                            <ShieldCheck size={14} className="text-amber-600" />
+                            <span>Natural Habitats & Local Biomes</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => startQuiz('BIOLOGY_DRILL')}
+                        className="w-full py-2 sm:py-4 bg-slate-950 hover:bg-amber-600 text-white font-bold text-[10px] sm:text-base rounded-xl sm:rounded-2xl transition-all shadow-lg hover:shadow-amber-100 flex items-center justify-center gap-1 sm:gap-2 group"
+                      >
+                        <span className="hidden sm:inline">Launch Biology Drill</span>
+                        <span className="inline sm:hidden">Launch</span>
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </motion.div>
+                  </>
+                ) : (
                   <>
                     {/* Chemistry Quick Drill Card */}
                     <motion.div 
@@ -366,9 +460,7 @@ export default function App() {
                         <ArrowRight className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
                       </button>
                     </motion.div>
-                  </>
-                ) : (
-                  <>
+
                     {/* Physics Quick Drill (Equilibrium & Friction) Card */}
                     <motion.div 
                       key="physics_equilibrium_drill"
@@ -436,7 +528,7 @@ export default function App() {
                         
                         <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Biology Quick Drill</h3>
                         <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
-                          Master living characteristics, cellular organelle functions (tonoplast, lysosomes), and levels of organisation.
+                          Master natural habitats, local biomes (savanna, desert, rainforest), xerophytic adaptations, and estuarine ecology.
                         </p>
 
                         <div className="space-y-2.5 mb-8 hidden sm:block">
@@ -446,7 +538,7 @@ export default function App() {
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <ShieldCheck size={14} className="text-amber-600" />
-                            <span>Living Organisms, Cells & Organisation</span>
+                            <span>Natural Habitats & Local Biomes</span>
                           </div>
                         </div>
                       </div>
@@ -481,7 +573,7 @@ export default function App() {
                         
                         <h3 className="text-xs sm:text-2xl font-black text-slate-900 mb-1 sm:mb-2">Economics</h3>
                         <p className="text-slate-500 text-[10px] sm:text-sm leading-relaxed mb-3 sm:mb-6">
-                          Test your mastery of monetary principles, Keynesian liquidity motives, and inflation dynamics.
+                          Test your precision on Public Finance, fiscal policy, canons of taxation, and Economic Growth & Development.
                         </p>
 
                         <div className="space-y-2.5 mb-8 hidden sm:block">
@@ -491,7 +583,7 @@ export default function App() {
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 text-xs font-semibold">
                             <ShieldCheck size={14} className="text-emerald-600" />
-                            <span>Money & Inflation Mastery</span>
+                            <span>Public Finance & Economic Growth</span>
                           </div>
                         </div>
                       </div>

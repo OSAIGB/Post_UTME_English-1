@@ -9,211 +9,211 @@ export const BIOLOGY_CELL_ORG_QUESTIONS: Question[] = [
   {
     id: 1,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "Which of the following is NOT a characteristic of living things?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Which biome is characterised by very low annual rainfall combined with extreme temperature fluctuations between day and night?",
     options: [
-      "Reproduction",
-      "Growth",
-      "Immobility",
-      "Respiration"
+      "Tropical rainforest",
+      "Desert",
+      "Savanna",
+      "Temperate forest"
     ],
-    correctAnswer: 2,
-    explanation: "Living things exhibit movement or locomotion rather than immobility. Reproduction, growth, and respiration are fundamental characteristics of living organisms."
+    correctAnswer: 1,
+    explanation: "Deserts experience very low annual precipitation alongside high diurnal temperature variation due to dry air and the absence of cloud cover."
   },
   {
     id: 2,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "The ability of a living organism to detect and respond to changes in its environment is referred to as:",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "The savanna biome is professionally identified by the presence of:",
     options: [
-      "Locomotion",
-      "Irritability",
-      "Growth",
-      "Taxis"
+      "Dense forests",
+      "Grasses with scattered trees",
+      "Coniferous trees",
+      "No vegetation"
     ],
     correctAnswer: 1,
-    explanation: "Irritability (or sensitivity) is the capacity of living organisms to perceive stimuli in their environment and respond appropriately."
+    explanation: "The savanna ecosystem is characterized by a continuous ground layer of grasses interrupted by widely spaced trees."
   },
   {
     id: 3,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "Which of the following cell components is responsible for controlling the activities of the cell?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Estuaries are ecologically significant primarily because they:",
     options: [
-      "Mitochondrion",
-      "Ribosome",
-      "Nucleus",
-      "Vacuole"
+      "Serve as nurseries for fish",
+      "Have low productivity",
+      "Are considered deserts",
+      "Lack essential nutrients"
     ],
-    correctAnswer: 2,
-    explanation: "The nucleus contains genetic material (DNA) that directs all cellular processes, growth, and enzyme production."
+    correctAnswer: 0,
+    explanation: "Estuaries are highly productive brackish zones that serve as vital breeding, feeding, and nursery grounds for marine organisms and fish."
   },
   {
     id: 4,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "Mitochondria are often referred to as the \"powerhouse of the cell\" because they:",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Mangrove swamps are typically found in:",
     options: [
-      "Produce enzymes for digestion",
-      "Generate energy through respiration",
-      "Control cell division",
-      "Store genetic information"
+      "Coastal saline areas",
+      "Freshwater lakes",
+      "Mountainous regions",
+      "High altitude deserts"
     ],
-    correctAnswer: 1,
-    explanation: "Mitochondria produce ATP (adenosine triphosphate) during cellular respiration, supplying usable chemical energy to the cell."
+    correctAnswer: 0,
+    explanation: "Mangroves are specialized wetland communities found in tropical and subtropical coastal saline areas with waterlogged, anaerobic soils."
   },
   {
     id: 5,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "Which of the following organelles is professionally known as the \"kitchen house\" of the cell due to its role in photosynthesis?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "In the stratification of a tropical rainforest, the emergent layer typically contains:",
     options: [
-      "Mitochondrion",
-      "Endoplasmic reticulum",
-      "Chloroplast",
-      "Golgi bodies"
+      "Shrubs",
+      "Mosses",
+      "Tall hardwood trees",
+      "Climbers"
     ],
     correctAnswer: 2,
-    explanation: "Chloroplasts contain chlorophyll, trapping light energy to synthesize food (glucose) during photosynthesis, earning them the nickname 'kitchen of the cell'."
+    explanation: "The emergent layer consists of giant hardwood trees (over 45-50 meters tall) rising above the main continuous canopy layer."
   },
   {
     id: 6,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "The membrane surrounding the vacuole in a plant cell is called the:",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Which of the following is a characteristic adaptation of xerophytes (desert plants) for water conservation?",
     options: [
-      "Plasmalemma",
-      "Tonoplast",
-      "Nuclear membrane",
-      "Endoplasmic reticulum"
+      "Broad leaves",
+      "Thin cuticle",
+      "Sunken stomata",
+      "Fleshy stems only"
     ],
-    correctAnswer: 1,
-    explanation: "The tonoplast is the semi-permeable membrane that bounds the central vacuole in plant cells, maintaining turgor pressure."
+    correctAnswer: 2,
+    explanation: "Sunken stomata trap moist air inside stomatal pits, reducing the concentration gradient and minimizing transpirational water loss."
   },
   {
     id: 7,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "Which organelle is often referred to as the \"suicide bag\" of the cell due to its role in containing digestive enzymes?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Identify the group of plants specifically adapted to grow in dry and porous soils with high temperatures:",
     options: [
-      "Mitochondrion",
-      "Lysosome",
-      "Ribosome",
-      "Nucleus"
+      "Thallophytes",
+      "Mesophytes",
+      "Xerophytes",
+      "Hydrophytes"
     ],
-    correctAnswer: 1,
-    explanation: "Lysosomes contain hydrolytic enzymes capable of digesting worn-out cellular organelles or the entire cell upon autolysis (self-destruction)."
+    correctAnswer: 2,
+    explanation: "Xerophytes possess anatomical and physiological adaptations enabling them to thrive in arid environments with low soil moisture."
   },
   {
     id: 8,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "Which of the following cell organelles is primarily responsible for carrying out cell specialisation by regulating gene expression?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Trees found in the savanna habitat often possess which of the following features to resist fire and drought?",
     options: [
-      "Nucleus",
-      "Cytoplasm",
-      "Microtubules",
-      "Mitochondrion"
+      "Thin, smooth bark",
+      "Thick, corky or flaky bark",
+      "Large, leathery leaves only",
+      "No bark"
     ],
-    correctAnswer: 0,
-    explanation: "The nucleus regulates gene expression and transcriptional machinery, dictating cell differentiation and specialization."
+    correctAnswer: 1,
+    explanation: "Thick corky or flaky bark acts as heat insulation against seasonal bushfires and protects vital internal cambium tissues from desiccation."
   },
   {
     id: 9,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "Which of the following correctly represents the levels of organisation in living organisms from simplest to most complex?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Typical aquatic plants solve the problem of buoyancy and gaseous exchange through the possession of:",
     options: [
-      "Tissue → Cell → Organ → System → Organism",
-      "Cell → Tissue → Organ → System → Organism",
-      "Organ → Tissue → Cell → System → Organism",
-      "Cell → Organ → Tissue → System → Organism"
+      "Air cavities (aerenchymatous tissues)",
+      "Dissected leaves",
+      "Heavy, woody stems",
+      "Waxy cuticles"
     ],
-    correctAnswer: 1,
-    explanation: "The hierarchical order of biological organization begins with single cells, which group into tissues, organs, organ systems, and complex organisms."
+    correctAnswer: 0,
+    explanation: "Aerenchyma tissues contain spongy air chambers that provide buoyancy in water and store gases for respiration and photosynthesis."
   },
   {
     id: 10,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "At which level of organisation is Hydra classified?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Organisms inhabiting an estuarine habitat must specifically adapt to:",
     options: [
-      "Cell level",
-      "Tissue level",
-      "Organ level",
-      "System level"
+      "constant low temperatures",
+      "complete absence of light",
+      "wide fluctuations in salinity caused by the mixing of fresh and salt water",
+      "extreme atmospheric pressure"
     ],
-    correctAnswer: 1,
-    explanation: "Hydra is a diploblastic cnidarian exhibiting a tissue level of organization with specialized outer ectoderm and inner endoderm tissues."
+    correctAnswer: 2,
+    explanation: "Estuarine organisms possess osmoregulatory adaptations to survive continuous shifts in water salinity as tides mix seawater with river flow."
   },
   {
     id: 11,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "At which level of biological organisation does an onion bulb primarily function, consisting of multiple tissue layers performing coordinated roles?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Which of the following pairs of trees are characteristic of the savanna biome in Nigeria?",
     options: [
-      "Cell",
-      "Tissue",
-      "Organ",
-      "Organ system"
+      "Iroko and Mahogany",
+      "Baobab and Acacia",
+      "Oil palm and Rubber",
+      "Pine and Fir"
     ],
-    correctAnswer: 2,
-    explanation: "An onion bulb is an underground modified shoot (stem and thick fleshy scale leaves) functioning as a storage organ."
+    correctAnswer: 1,
+    explanation: "Baobab (Adansonia digitata) and Acacia species are dominant xeromorphic tree species characteristic of Nigerian savanna belts."
   },
   {
     id: 12,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "A group of similar cells performing the same function is professionally defined as:",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "In which of the following states in Nigeria is the Guinea savanna zone primarily found?",
     options: [
-      "An organ",
-      "A system",
-      "A tissue",
-      "An organelle"
+      "Lagos",
+      "Delta",
+      "Kwara",
+      "Rivers"
     ],
     correctAnswer: 2,
-    explanation: "A tissue is an ensemble of similar cells from the same origin that together carry out a specific function."
+    explanation: "Kwara State lies prominently within the Guinea Savanna belt of Nigeria, characterized by tall grasses and scattered trees."
   },
   {
     id: 13,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "An Amoeba and an unlaid chicken egg are both examples of:",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "Hydrophytes in freshwater habitats often exhibit which structural adaptation due to the abundance of water?",
     options: [
-      "Animal tissues",
-      "Organelles",
-      "Single cells",
-      "Organisms"
+      "Waxy cuticle on all surfaces",
+      "Poor development of roots and xylem tissues",
+      "Well-developed supporting systems",
+      "Leaves modified into spines"
     ],
-    correctAnswer: 2,
-    explanation: "Both an Amoeba (a unicellular protozoan) and an unfertilized chicken egg represent single cells."
+    correctAnswer: 1,
+    explanation: "In submerged aquatic habitats, extensive roots and thick structural xylem are unnecessary because water and nutrients diffuse directly across plant tissues."
   },
   {
     id: 14,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "Which of the following is classified as an organ within the human body?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "The largest biome on Earth, covering approximately 70% of the surface, is the:",
     options: [
-      "Guard cell",
-      "Liver",
-      "Xylem bundle",
-      "Blood"
+      "Taiga",
+      "Ocean (marine)",
+      "Grassland",
+      "Desert"
     ],
     correctAnswer: 1,
-    explanation: "The liver is a vital organ composed of distinct tissues (hepatocytes, blood vessels) performing metabolic and digestive roles."
+    explanation: "The marine (oceanic) biome is the largest aquatic biome on Earth, covering roughly 71% of the planet's surface."
   },
   {
     id: 15,
     category: 'BIOLOGY',
-    sourceYear: 'JAMB / Post-UTME Biology',
-    text: "The nephridia in the earthworm form part of which biological system?",
+    sourceYear: 'Natural Habitats & Local Biomes',
+    text: "A biome characterised by permafrost—a layer of permanently frozen subsoil—is known as the:",
     options: [
-      "Reproductive system",
-      "Respiratory system",
-      "Circulatory system",
-      "Excretory system"
+      "High savanna",
+      "Tundra",
+      "Montane forest",
+      "Desert"
     ],
-    correctAnswer: 3,
-    explanation: "Nephridia are coiled tubular excretory organs in annelids like the earthworm that remove nitrogenous waste and balance osmoregulation."
+    correctAnswer: 1,
+    explanation: "The tundra biome is characterized by low temperatures, low rainfall, short summer growing seasons, and a permanently frozen subsoil layer called permafrost."
   }
 ];
